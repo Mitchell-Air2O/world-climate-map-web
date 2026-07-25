@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>World Climate Map — Embed Demo</title>
+<link rel="stylesheet" href="./globe.css" />
+<style>
+  :root { color-scheme: dark; }
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #101116;
+    color: #eee;
+  }
+  header {
+    flex: 0 0 auto;
+    padding: 16px 24px;
+    border-bottom: 1px solid #2a2c36;
+  }
+  header h1 { font-size: 16px; margin: 0 0 4px; }
+  header p { margin: 0; font-size: 13px; color: #9a9caa; }
+  main {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Globe on top, data panel below it (not side-by-side). */
+  #climate-globe {
+    position: relative;
+    flex: 0 0 56vh;
+    min-height: 320px;
+    background: radial-gradient(circle at 50% 40%, #1b2036 0%, #0a0a10 75%);
+  }
+  aside {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    border-top: 1px solid #2a2c36;
+    padding: 20px 24px 32px;
+  }
+  .aside-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .picker-label { font-size: 12px; color: #9a9caa; margin-bottom: 6px; }
+  .zip-form, .picker-form {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .zip-form input, .picker-form select {
+    flex: 1;
+    max-width: 280px;
+    min-width: 160px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #3a3d4a;
+    background: #1a1c24;
+    color: #eee;
+    font-size: 14px;
+  }
+  .picker-form select:disabled { opacity: 0.5; cursor: not-allowed; }
+  .zip-form button {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    background: #4a7fe8;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .zip-form button:hover { background: #5b8cf0; }
+  #status { font-size: 13px; color: #9a9caa; min-height: 18px; }
+  .data-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  #summary { flex: 0 0 220px; font-size: 13px; }
+  #summary .row { display: flex; justify-content: space-between; padding: 3px 0; }
+  #summary .row span:last-child { color: #cfd2e0; font-variant-numeric: tabular-nums; }
+  #summary .row.sub span:last-child { color: #8b8d9a; font-size: 12px; }
+  .chart-wrap { flex: 1 1 360px; min-width: 280px; }
+  .chart-title { font-size: 12px; color: #9a9caa; margin-bottom: 6px; }
+  #monthly-chart { width: 100%; height: 160px; }
+  #monthly-chart .chart-grid { stroke: #23252f; stroke-width: 1; }
+  #monthly-chart .chart-area { fill: rgba(74, 127, 232, 0.18); stroke: none; }
+  #monthly-chart .chart-line { fill: none; stroke: #6fb2ff; stroke-width: 2; }
+  #monthly-chart .chart-dot { fill: #6fb2ff; }
+  #monthly-chart .chart-label { fill: #7c7e8c; font-size: 9px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #23252f; }
+  th { color: #9a9caa; font-weight: 500; }
+</style>
+</head>
+<body>
+<header>
+  <h1>World Climate Map</h1>
+</header>
+<main>
+  <div id="climate-globe"></div>
+  <aside>
+    <div class="aside-inner">
+      <div>
+        <div class="picker-label">Browse by country / region</div>
+        <form class="picker-form" id="picker-form">
+          <select id="country-select"><option value="">Country…</option></select>
+          <select id="region-select" disabled><option value="">Region…</option></select>
+        </form>
+      </div>
+      <form class="zip-form" id="zip-form">
+        <input id="zip-input" type="text" inputmode="numeric" placeholder="ZIP code (e.g. 97041)" />
+        <button type="submit">Go</button>
+      </form>
+      <div id="status">Click the globe, choose a country/region, or enter a ZIP code.</div>
+      <div class="data-row">
+        <div id="summary"></div>
+        <div class="chart-wrap">
+          <div class="chart-title">Monthly production estimate (L/day)</div>
+          <svg id="monthly-chart" viewBox="0 0 520 180" preserveAspectRatio="none" hidden></svg>
+        </div>
+      </div>
+      <table id="monthly-table" hidden>
+        <thead><tr><th>Month</th><th>Production estimate (L/day)</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </aside>
+</main>
+
+<script type="module">
+  import { ClimateGlobe } from "./globe.js";
+
+  const globe = new ClimateGlobe("#climate-globe", { dataUrl: "." });
+
+  const statusEl = document.getElementById("status");
+  const summaryEl = document.getElementById("summary");
+  const chartEl = document.getElementById("monthly-chart");
+  const tableEl = document.getElementById("monthly-table");
+  const tableBody = tableEl.querySelector("tbody");
+
+  const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  function renderChart(values) {
+    const W = 520, H = 180;
+    const padL = 8, padR = 8, padT = 10, padB = 20;
+    const plotW = W - padL - padR, plotH = H - padT - padB;
+    const vMax = Math.max(...values, 1) * 1.15;
+    const x = (i) => padL + (i / (values.length - 1)) * plotW;
+    const y = (v) => padT + plotH - (v / vMax) * plotH;
+
+    const pts = values.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
+    const areaPts = `${x(0).toFixed(1)},${y(0).toFixed(1)} ${pts} ${x(values.length - 1).toFixed(1)},${y(0).toFixed(1)}`;
+    const gridLines = [0.25, 0.5, 0.75, 1].map((f) => {
+      const yy = (padT + plotH * (1 - f)).toFixed(1);
+      return `<line x1="${padL}" y1="${yy}" x2="${W - padR}" y2="${yy}" class="chart-grid" />`;
+    }).join("");
+    const dots = values.map((v, i) =>
+      `<circle cx="${x(i).toFixed(1)}" cy="${y(v).toFixed(1)}" r="2.5" class="chart-dot" />`
+    ).join("");
+    const labels = MONTHS.map((m, i) =>
+      `<text x="${x(i).toFixed(1)}" y="${H - 6}" class="chart-label" text-anchor="middle">${m[0]}</text>`
+    ).join("");
+
+    chartEl.innerHTML = `${gridLines}<polygon points="${areaPts}" class="chart-area"/>` +
+      `<polyline points="${pts}" class="chart-line"/>${dots}${labels}`;
+  }
+
+  function geoLine(name, code) {
+    if (!name) return "—";
+    return code ? `${name} (${code})` : name;
+  }
+
+  globe.addEventListener("locationselected", (e) => {
+    const d = e.detail;
+    statusEl.textContent = d.zip ? `ZIP ${d.zip}` : `${d.lat.toFixed(2)}, ${d.lon.toFixed(2)}`;
+
+    const geoRows = `
+      <div class="row"><span>Coordinates</span><span>${d.lat.toFixed(3)}, ${d.lon.toFixed(3)}</span></div>
+      <div class="row"><span>Country</span><span>${geoLine(d.country, d.countryCode)}</span></div>
+      <div class="row"><span>Region</span><span>${geoLine(d.region, d.regionCode)}</span></div>
+    `;
+
+    if (!d.isLand) {
+      summaryEl.innerHTML = geoRows +
+        `<div class="row"><span>Climate data</span><span>ocean — n/a</span></div>`;
+      chartEl.hidden = true;
+      tableEl.hidden = true;
+      return;
+    }
+    summaryEl.innerHTML = geoRows + `
+      <div class="row"><span>Regime</span><span>${d.regime}</span></div>
+      <div class="row"><span>Annual avg.</span><span>${d.annual_L_day.toFixed(2)} L/day</span></div>
+      <div class="row sub"><span></span><span>${d.annual_mL_hr.toFixed(1)} mL/hr</span></div>
+    `;
+    renderChart(d.monthly_L_day);
+    chartEl.hidden = false;
+    tableBody.innerHTML = d.monthly_L_day
+      .map((v, i) => `<tr><td>${MONTHS[i]}</td><td>${v.toFixed(2)}</td></tr>`)
+      .join("");
+    tableEl.hidden = false;
+  });
+
+  globe.addEventListener("locationerror", (e) => {
+    const reason = e.detail.reason;
+    if (reason === "zip-not-found") statusEl.textContent = `ZIP ${e.detail.zip} not found.`;
+    else statusEl.textContent = "No data for that selection.";
+  });
+
+  document.getElementById("zip-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const zip = document.getElementById("zip-input").value.trim();
+    if (zip) globe.goToZip(zip);
+  });
+
+  // Country dropdown populates on load; region dropdown repopulates from whichever
+  // country is currently selected (and disables itself when that country has no
+  // admin-1 detail in this bundle).
+  const countrySelect = document.getElementById("country-select");
+  const regionSelect = document.getElementById("region-select");
+
+  globe.getCountries().then((countries) => {
+    countries.sort((a, b) => a.name.localeCompare(b.name));
+    for (const c of countries) {
+      const opt = document.createElement("option");
+      opt.value = c.id;
+      opt.textContent = c.name;
+      countrySelect.appendChild(opt);
+    }
+  });
+
+  countrySelect.addEventListener("change", async () => {
+    regionSelect.innerHTML = '<option value="">Region…</option>';
+    regionSelect.disabled = true;
+    const countryId = parseInt(countrySelect.value, 10);
+    if (!countryId) return;
+
+    const regions = await globe.getRegions(countryId);
+    if (regions.length > 0) {
+      regions.sort((a, b) => a.name.localeCompare(b.name));
+      for (const r of regions) {
+        const opt = document.createElement("option");
+        opt.value = r.id;
+        opt.textContent = r.name;
+        regionSelect.appendChild(opt);
+      }
+      regionSelect.disabled = false;
+    }
+    globe.goToCountry(countryId);
+  });
+
+  regionSelect.addEventListener("change", () => {
+    const regionId = parseInt(regionSelect.value, 10);
+    if (regionId) globe.goToRegion(regionId);
+  });
+</script>
+</body>
+</html>

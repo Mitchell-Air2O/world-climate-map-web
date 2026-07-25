@@ -1,0 +1,6 @@
+services:
+  web:
+    image: ${IMAGE:-ghcr.io/mitchell-air2o/world-climate-map-web:latest}
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8080}:80"

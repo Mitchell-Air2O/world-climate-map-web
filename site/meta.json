@@ -1,0 +1,3215 @@
+{
+  "exportedAt": "2026-07-25T03:27:06.475149+00:00",
+  "settings": {
+    "textureResolution": "5m",
+    "dataResolution": "10m",
+    "outletTempC": 0.0,
+    "evapPressureDropPa": 0.0,
+    "dropExtremeMonths": 1
+  },
+  "texture": {
+    "low": {
+      "file": "texture_low.webp",
+      "fallbackFile": "texture_low.png",
+      "width": 2048,
+      "height": 1024
+    },
+    "high": {
+      "file": "texture_high.webp",
+      "fallbackFile": "texture_high.png",
+      "width": 8192,
+      "height": 4096
+    },
+    "ultra": {
+      "file": "texture_ultra.webp",
+      "fallbackFile": "texture_ultra.png",
+      "width": 16000,
+      "height": 8000
+    }
+  },
+  "textureTierOrder": [
+    "low",
+    "high",
+    "ultra"
+  ],
+  "grid": {
+    "height": 1080,
+    "width": 2160,
+    "lat0": 89.95833587646484,
+    "latStep": -0.1666717529296875,
+    "lon0": -179.9583282470703,
+    "lonStep": 0.166656494140625,
+    "landCells": 787365
+  },
+  "quantization": {
+    "annualScale": 10.0,
+    "monthlyScale": 10.0
+  },
+  "regimes": {
+    "order": [
+      "desert",
+      "arid",
+      "dry",
+      "low",
+      "temperate",
+      "high",
+      "tropic"
+    ],
+    "centres": {
+      "desert": -22.5,
+      "arid": 42.5,
+      "dry": 107.5,
+      "low": 172.5,
+      "temperate": 237.5,
+      "high": 302.5,
+      "tropic": 367.5
+    },
+    "colors": {
+      "ocean": "#1E3C78",
+      "desert": "#9E9E9EB0",
+      "arid": "#F3BBB3",
+      "dry": "#ECD68D",
+      "low": "#F3F298",
+      "temperate": "#ABEE8C",
+      "high": "#6CF3D6",
+      "tropic": "#71A2EC"
+    }
+  },
+  "files": {
+    "landMask": "land.bin",
+    "annual": "annual.bin",
+    "monthly": "monthly.bin",
+    "zips": "zips.bin",
+    "country": "country.bin",
+    "region": "region.bin"
+  },
+  "zip": {
+    "count": 33791
+  },
+  "countries": [
+    null,
+    {
+      "name": "Fiji",
+      "code": "FJ",
+      "lat": -17.775903701782227,
+      "lon": 177.99661254882812
+    },
+    {
+      "name": "Tanzania",
+      "code": "TZ",
+      "lat": -6.2267069816589355,
+      "lon": 34.716453552246094
+    },
+    {
+      "name": "W. Sahara",
+      "code": "EH",
+      "lat": 24.192577362060547,
+      "lon": -12.385364532470703
+    },
+    {
+      "name": "Canada",
+      "code": "CA",
+      "lat": 57.763919830322266,
+      "lon": -101.542236328125
+    },
+    {
+      "name": "United States of America",
+      "code": "US",
+      "lat": 39.53117752075195,
+      "lon": -99.0184097290039
+    },
+    {
+      "name": "Kazakhstan",
+      "code": "KZ",
+      "lat": 48.229244232177734,
+      "lon": 67.20570373535156
+    },
+    {
+      "name": "Uzbekistan",
+      "code": "UZ",
+      "lat": 41.778785705566406,
+      "lon": 63.19730758666992
+    },
+    {
+      "name": "Papua New Guinea",
+      "code": "PG",
+      "lat": -6.614136695861816,
+      "lon": 144.32315063476562
+    },
+    {
+      "name": "Indonesia",
+      "code": "ID",
+      "lat": -0.19367319345474243,
+      "lon": 113.9759521484375
+    },
+    {
+      "name": "Argentina",
+      "code": "AR",
+      "lat": -35.22383499145508,
+      "lon": -65.1733627319336
+    },
+    {
+      "name": "Chile",
+      "code": "CL",
+      "lat": -37.25672912597656,
+      "lon": -71.69596099853516
+    },
+    {
+      "name": "Dem. Rep. Congo",
+      "code": "CD",
+      "lat": -2.83660626411438,
+      "lon": 23.53672981262207
+    },
+    {
+      "name": "Somalia",
+      "code": "SO",
+      "lat": 4.852904319763184,
+      "lon": 45.695194244384766
+    },
+    {
+      "name": "Kenya",
+      "code": "KE",
+      "lat": 0.6578848361968994,
+      "lon": 37.745704650878906
+    },
+    {
+      "name": "Sudan",
+      "code": "SD",
+      "lat": 15.964313507080078,
+      "lon": 29.826431274414062
+    },
+    {
+      "name": "Chad",
+      "code": "TD",
+      "lat": 15.3548583984375,
+      "lon": 18.542463302612305
+    },
+    {
+      "name": "Haiti",
+      "code": "HT",
+      "lat": 18.989486694335938,
+      "lon": -72.70599365234375
+    },
+    {
+      "name": "Dominican Rep.",
+      "code": "DO",
+      "lat": 18.919572830200195,
+      "lon": -70.53876495361328
+    },
+    {
+      "name": "Russia",
+      "code": "RU",
+      "lat": 61.717166900634766,
+      "lon": 99.21031188964844
+    },
+    {
+      "name": "Bahamas",
+      "code": "BS",
+      "lat": 24.581140518188477,
+      "lon": -77.98027038574219
+    },
+    {
+      "name": "Falkland Is.",
+      "code": "FK",
+      "lat": -51.68313980102539,
+      "lon": -59.43894958496094
+    },
+    {
+      "name": "Norway",
+      "code": "-99",
+      "lat": 64.60579681396484,
+      "lon": 14.31795883178711
+    },
+    {
+      "name": "Greenland",
+      "code": "GL",
+      "lat": 74.83204650878906,
+      "lon": -41.51191329956055
+    },
+    {
+      "name": "Fr. S. Antarctic Lands",
+      "code": "TF",
+      "lat": -49.280128479003906,
+      "lon": 69.50064086914062
+    },
+    {
+      "name": "Timor-Leste",
+      "code": "TL",
+      "lat": -8.705357551574707,
+      "lon": 125.9434585571289
+    },
+    {
+      "name": "South Africa",
+      "code": "ZA",
+      "lat": -28.87782096862793,
+      "lon": 25.100305557250977
+    },
+    {
+      "name": "Lesotho",
+      "code": "LS",
+      "lat": -29.596153259277344,
+      "lon": 28.13140869140625
+    },
+    {
+      "name": "Mexico",
+      "code": "MX",
+      "lat": 24.006502151489258,
+      "lon": -102.6698226928711
+    },
+    {
+      "name": "Uruguay",
+      "code": "UY",
+      "lat": -32.731143951416016,
+      "lon": -56.041534423828125
+    },
+    {
+      "name": "Brazil",
+      "code": "BR",
+      "lat": -10.759604454040527,
+      "lon": -53.124732971191406
+    },
+    {
+      "name": "Bolivia",
+      "code": "BO",
+      "lat": -16.677949905395508,
+      "lon": -64.65421295166016
+    },
+    {
+      "name": "Peru",
+      "code": "PE",
+      "lat": -9.153538703918457,
+      "lon": -74.41885375976562
+    },
+    {
+      "name": "Colombia",
+      "code": "CO",
+      "lat": 3.9780564308166504,
+      "lon": -73.0998306274414
+    },
+    {
+      "name": "Panama",
+      "code": "PA",
+      "lat": 8.54482364654541,
+      "lon": -80.1654052734375
+    },
+    {
+      "name": "Costa Rica",
+      "code": "CR",
+      "lat": 9.975926399230957,
+      "lon": -84.20833587646484
+    },
+    {
+      "name": "Nicaragua",
+      "code": "NI",
+      "lat": 12.887954711914062,
+      "lon": -85.07666015625
+    },
+    {
+      "name": "Honduras",
+      "code": "HN",
+      "lat": 14.870199203491211,
+      "lon": -86.64507293701172
+    },
+    {
+      "name": "El Salvador",
+      "code": "SV",
+      "lat": 13.757035255432129,
+      "lon": -88.88258361816406
+    },
+    {
+      "name": "Guatemala",
+      "code": "GT",
+      "lat": 15.768369674682617,
+      "lon": -90.41889953613281
+    },
+    {
+      "name": "Belize",
+      "code": "BZ",
+      "lat": 17.263214111328125,
+      "lon": -88.7306900024414
+    },
+    {
+      "name": "Venezuela",
+      "code": "VE",
+      "lat": 7.210777759552002,
+      "lon": -66.2231216430664
+    },
+    {
+      "name": "Guyana",
+      "code": "GY",
+      "lat": 4.81425666809082,
+      "lon": -58.99598693847656
+    },
+    {
+      "name": "Suriname",
+      "code": "SR",
+      "lat": 4.150036811828613,
+      "lon": -55.938899993896484
+    },
+    {
+      "name": "France",
+      "code": "-99",
+      "lat": 46.64659881591797,
+      "lon": 2.3027453422546387
+    },
+    {
+      "name": "Ecuador",
+      "code": "EC",
+      "lat": -1.4532794952392578,
+      "lon": -78.44801330566406
+    },
+    {
+      "name": "Puerto Rico",
+      "code": "PR",
+      "lat": 18.269926071166992,
+      "lon": -66.55978393554688
+    },
+    {
+      "name": "Jamaica",
+      "code": "JM",
+      "lat": 18.202518463134766,
+      "lon": -77.40019226074219
+    },
+    {
+      "name": "Cuba",
+      "code": "CU",
+      "lat": 21.635074615478516,
+      "lon": -78.93818664550781
+    },
+    {
+      "name": "Zimbabwe",
+      "code": "ZW",
+      "lat": -18.844772338867188,
+      "lon": 29.731830596923828
+    },
+    {
+      "name": "Botswana",
+      "code": "BW",
+      "lat": -22.069589614868164,
+      "lon": 23.724895477294922
+    },
+    {
+      "name": "Namibia",
+      "code": "NA",
+      "lat": -22.05541229248047,
+      "lon": 17.128143310546875
+    },
+    {
+      "name": "Senegal",
+      "code": "SN",
+      "lat": 14.348267555236816,
+      "lon": -14.570226669311523
+    },
+    {
+      "name": "Mali",
+      "code": "ML",
+      "lat": 17.26291847229004,
+      "lon": -3.6063520908355713
+    },
+    {
+      "name": "Mauritania",
+      "code": "MR",
+      "lat": 20.279237747192383,
+      "lon": -10.344438552856445
+    },
+    {
+      "name": "Benin",
+      "code": "BJ",
+      "lat": 9.616582870483398,
+      "lon": 2.286616086959839
+    },
+    {
+      "name": "Niger",
+      "code": "NE",
+      "lat": 17.359827041625977,
+      "lon": 9.28094482421875
+    },
+    {
+      "name": "Nigeria",
+      "code": "NG",
+      "lat": 9.575355529785156,
+      "lon": 7.959268569946289
+    },
+    {
+      "name": "Cameroon",
+      "code": "CM",
+      "lat": 5.710667610168457,
+      "lon": 12.594305038452148
+    },
+    {
+      "name": "Togo",
+      "code": "TG",
+      "lat": 8.493159294128418,
+      "lon": 0.9388474225997925
+    },
+    {
+      "name": "Ghana",
+      "code": "GH",
+      "lat": 8.010555267333984,
+      "lon": -1.2669999599456787
+    },
+    {
+      "name": "C\u00f4te d'Ivoire",
+      "code": "CI",
+      "lat": 7.599220275878906,
+      "lon": -5.632389068603516
+    },
+    {
+      "name": "Guinea",
+      "code": "GN",
+      "lat": 10.475194931030273,
+      "lon": -11.100573539733887
+    },
+    {
+      "name": "Guinea-Bissau",
+      "code": "GW",
+      "lat": 12.096075057983398,
+      "lon": -15.14290714263916
+    },
+    {
+      "name": "Liberia",
+      "code": "LR",
+      "lat": 6.480520725250244,
+      "lon": -9.43769359588623
+    },
+    {
+      "name": "Sierra Leone",
+      "code": "SL",
+      "lat": 8.605744361877441,
+      "lon": -11.82951545715332
+    },
+    {
+      "name": "Burkina Faso",
+      "code": "BF",
+      "lat": 12.336732864379883,
+      "lon": -1.8322649002075195
+    },
+    {
+      "name": "Central African Rep.",
+      "code": "CF",
+      "lat": 6.574859142303467,
+      "lon": 20.33739471435547
+    },
+    {
+      "name": "Congo",
+      "code": "CG",
+      "lat": -0.8210510015487671,
+      "lon": 15.068098068237305
+    },
+    {
+      "name": "Gabon",
+      "code": "GA",
+      "lat": -0.5637431144714355,
+      "lon": 11.629176139831543
+    },
+    {
+      "name": "Eq. Guinea",
+      "code": "GQ",
+      "lat": 1.6875,
+      "lon": 10.28819465637207
+    },
+    {
+      "name": "Zambia",
+      "code": "ZM",
+      "lat": -13.345868110656738,
+      "lon": 27.653846740722656
+    },
+    {
+      "name": "Malawi",
+      "code": "MW",
+      "lat": -13.09765625,
+      "lon": 34.14192581176758
+    },
+    {
+      "name": "Mozambique",
+      "code": "MZ",
+      "lat": -17.208908081054688,
+      "lon": 35.40336227416992
+    },
+    {
+      "name": "eSwatini",
+      "code": "SZ",
+      "lat": -26.470239639282227,
+      "lon": 31.394046783447266
+    },
+    {
+      "name": "Angola",
+      "code": "AO",
+      "lat": -12.216899871826172,
+      "lon": 17.476408004760742
+    },
+    {
+      "name": "Burundi",
+      "code": "BI",
+      "lat": -3.3157410621643066,
+      "lon": 29.886110305786133
+    },
+    {
+      "name": "Israel",
+      "code": "IL",
+      "lat": 31.499605178833008,
+      "lon": 34.94801330566406
+    },
+    {
+      "name": "Lebanon",
+      "code": "LB",
+      "lat": 33.904998779296875,
+      "lon": 35.768333435058594
+    },
+    {
+      "name": "Madagascar",
+      "code": "MG",
+      "lat": -19.2785587310791,
+      "lon": 46.676856994628906
+    },
+    {
+      "name": "Palestine",
+      "code": "PS",
+      "lat": 31.970233917236328,
+      "lon": 35.244049072265625
+    },
+    {
+      "name": "Gambia",
+      "code": "GM",
+      "lat": 13.485655784606934,
+      "lon": -15.573086738586426
+    },
+    {
+      "name": "Tunisia",
+      "code": "TN",
+      "lat": 34.21046829223633,
+      "lon": 9.492378234863281
+    },
+    {
+      "name": "Algeria",
+      "code": "DZ",
+      "lat": 28.21003532409668,
+      "lon": 2.545175075531006
+    },
+    {
+      "name": "Jordan",
+      "code": "JO",
+      "lat": 31.31547737121582,
+      "lon": 36.74715042114258
+    },
+    {
+      "name": "United Arab Emirates",
+      "code": "AE",
+      "lat": 23.951086044311523,
+      "lon": 54.24215316772461
+    },
+    {
+      "name": "Qatar",
+      "code": "QA",
+      "lat": 25.327896118164062,
+      "lon": 51.135868072509766
+    },
+    {
+      "name": "Kuwait",
+      "code": "KW",
+      "lat": 29.34722328186035,
+      "lon": 47.534088134765625
+    },
+    {
+      "name": "Iraq",
+      "code": "IQ",
+      "lat": 33.09126281738281,
+      "lon": 43.747947692871094
+    },
+    {
+      "name": "Oman",
+      "code": "OM",
+      "lat": 20.637666702270508,
+      "lon": 56.050716400146484
+    },
+    {
+      "name": "Vanuatu",
+      "code": "VU",
+      "lat": -15.189103126525879,
+      "lon": 166.82373046875
+    },
+    {
+      "name": "Cambodia",
+      "code": "KH",
+      "lat": 12.709927558898926,
+      "lon": 104.80891418457031
+    },
+    {
+      "name": "Thailand",
+      "code": "TH",
+      "lat": 14.956419944763184,
+      "lon": 100.94729614257812
+    },
+    {
+      "name": "Laos",
+      "code": "LA",
+      "lat": 18.501632690429688,
+      "lon": 103.70746612548828
+    },
+    {
+      "name": "Myanmar",
+      "code": "MM",
+      "lat": 20.981143951416016,
+      "lon": 96.50862884521484
+    },
+    {
+      "name": "Vietnam",
+      "code": "VN",
+      "lat": 16.635656356811523,
+      "lon": 106.27405548095703
+    },
+    {
+      "name": "North Korea",
+      "code": "KP",
+      "lat": 40.1435546875,
+      "lon": 127.1264419555664
+    },
+    {
+      "name": "South Korea",
+      "code": "KR",
+      "lat": 36.45876693725586,
+      "lon": 127.77301025390625
+    },
+    {
+      "name": "Mongolia",
+      "code": "MN",
+      "lat": 46.86137390136719,
+      "lon": 102.93833923339844
+    },
+    {
+      "name": "India",
+      "code": "IN",
+      "lat": 22.951265335083008,
+      "lon": 79.58134460449219
+    },
+    {
+      "name": "Bangladesh",
+      "code": "BD",
+      "lat": 23.83469009399414,
+      "lon": 90.28895568847656
+    },
+    {
+      "name": "Bhutan",
+      "code": "BT",
+      "lat": 27.490026473999023,
+      "lon": 90.43251037597656
+    },
+    {
+      "name": "Nepal",
+      "code": "NP",
+      "lat": 28.281883239746094,
+      "lon": 83.97632598876953
+    },
+    {
+      "name": "Pakistan",
+      "code": "PK",
+      "lat": 30.033363342285156,
+      "lon": 69.41458129882812
+    },
+    {
+      "name": "Afghanistan",
+      "code": "AF",
+      "lat": 33.892486572265625,
+      "lon": 66.05516052246094
+    },
+    {
+      "name": "Tajikistan",
+      "code": "TJ",
+      "lat": 38.61968231201172,
+      "lon": 70.97577667236328
+    },
+    {
+      "name": "Kyrgyzstan",
+      "code": "KG",
+      "lat": 41.56074142456055,
+      "lon": 74.54083251953125
+    },
+    {
+      "name": "Turkmenistan",
+      "code": "TM",
+      "lat": 39.14307403564453,
+      "lon": 59.254539489746094
+    },
+    {
+      "name": "Iran",
+      "code": "IR",
+      "lat": 32.571651458740234,
+      "lon": 54.23312759399414
+    },
+    {
+      "name": "Syria",
+      "code": "SY",
+      "lat": 35.05547332763672,
+      "lon": 38.51714324951172
+    },
+    {
+      "name": "Armenia",
+      "code": "AM",
+      "lat": 40.193241119384766,
+      "lon": 45.00491714477539
+    },
+    {
+      "name": "Sweden",
+      "code": "SE",
+      "lat": 62.84329605102539,
+      "lon": 16.52064323425293
+    },
+    {
+      "name": "Belarus",
+      "code": "BY",
+      "lat": 53.540103912353516,
+      "lon": 27.922441482543945
+    },
+    {
+      "name": "Ukraine",
+      "code": "UA",
+      "lat": 49.1810188293457,
+      "lon": 31.185823440551758
+    },
+    {
+      "name": "Poland",
+      "code": "PL",
+      "lat": 52.175941467285156,
+      "lon": 19.272579193115234
+    },
+    {
+      "name": "Austria",
+      "code": "AT",
+      "lat": 47.66374969482422,
+      "lon": 13.948333740234375
+    },
+    {
+      "name": "Hungary",
+      "code": "HU",
+      "lat": 47.24041748046875,
+      "lon": 19.300745010375977
+    },
+    {
+      "name": "Moldova",
+      "code": "MD",
+      "lat": 47.22357940673828,
+      "lon": 28.3689022064209
+    },
+    {
+      "name": "Romania",
+      "code": "RO",
+      "lat": 45.88590621948242,
+      "lon": 24.91573715209961
+    },
+    {
+      "name": "Lithuania",
+      "code": "LT",
+      "lat": 55.32286071777344,
+      "lon": 23.806285858154297
+    },
+    {
+      "name": "Latvia",
+      "code": "LV",
+      "lat": 56.85513687133789,
+      "lon": 24.81838035583496
+    },
+    {
+      "name": "Estonia",
+      "code": "EE",
+      "lat": 58.633026123046875,
+      "lon": 25.797222137451172
+    },
+    {
+      "name": "Germany",
+      "code": "DE",
+      "lat": 51.168270111083984,
+      "lon": 10.232392311096191
+    },
+    {
+      "name": "Bulgaria",
+      "code": "BG",
+      "lat": 42.80038070678711,
+      "lon": 25.178693771362305
+    },
+    {
+      "name": "Greece",
+      "code": "GR",
+      "lat": 39.3821907043457,
+      "lon": 22.58022689819336
+    },
+    {
+      "name": "Turkey",
+      "code": "TR",
+      "lat": 39.04169464111328,
+      "lon": 35.34607696533203
+    },
+    {
+      "name": "Albania",
+      "code": "AL",
+      "lat": 41.2003059387207,
+      "lon": 19.981170654296875
+    },
+    {
+      "name": "Croatia",
+      "code": "HR",
+      "lat": 45.06007766723633,
+      "lon": 16.52044105529785
+    },
+    {
+      "name": "Switzerland",
+      "code": "CH",
+      "lat": 46.80619430541992,
+      "lon": 8.095948219299316
+    },
+    {
+      "name": "Luxembourg",
+      "code": "LU",
+      "lat": 49.79166793823242,
+      "lon": 5.958333492279053
+    },
+    {
+      "name": "Belgium",
+      "code": "BE",
+      "lat": 50.66612243652344,
+      "lon": 4.512446403503418
+    },
+    {
+      "name": "Netherlands",
+      "code": "NL",
+      "lat": 52.3289680480957,
+      "lon": 5.460714340209961
+    },
+    {
+      "name": "Portugal",
+      "code": "PT",
+      "lat": 39.64599609375,
+      "lon": -8.097877502441406
+    },
+    {
+      "name": "Spain",
+      "code": "ES",
+      "lat": 40.40141296386719,
+      "lon": -3.6853551864624023
+    },
+    {
+      "name": "Ireland",
+      "code": "IE",
+      "lat": 53.21672439575195,
+      "lon": -8.043343544006348
+    },
+    {
+      "name": "New Caledonia",
+      "code": "NC",
+      "lat": -21.184804916381836,
+      "lon": 165.44952392578125
+    },
+    {
+      "name": "Solomon Is.",
+      "code": "SB",
+      "lat": -8.903736114501953,
+      "lon": 161.04739379882812
+    },
+    {
+      "name": "New Zealand",
+      "code": "NZ",
+      "lat": -43.8972053527832,
+      "lon": 170.53343200683594
+    },
+    {
+      "name": "Australia",
+      "code": "AU",
+      "lat": -25.513065338134766,
+      "lon": 134.33505249023438
+    },
+    {
+      "name": "Sri Lanka",
+      "code": "LK",
+      "lat": 7.758656024932861,
+      "lon": 80.61251831054688
+    },
+    {
+      "name": "China",
+      "code": "CN",
+      "lat": 36.65861511230469,
+      "lon": 103.85215759277344
+    },
+    {
+      "name": "Taiwan",
+      "code": "CN-TW",
+      "lat": 23.699495315551758,
+      "lon": 120.91792297363281
+    },
+    {
+      "name": "Italy",
+      "code": "IT",
+      "lat": 43.4613151550293,
+      "lon": 12.266375541687012
+    },
+    {
+      "name": "Denmark",
+      "code": "DK",
+      "lat": 56.2519416809082,
+      "lon": 9.276554107666016
+    },
+    {
+      "name": "United Kingdom",
+      "code": "GB",
+      "lat": 53.97773742675781,
+      "lon": -2.7044930458068848
+    },
+    {
+      "name": "Iceland",
+      "code": "IS",
+      "lat": 65.111572265625,
+      "lon": -18.846708297729492
+    },
+    {
+      "name": "Azerbaijan",
+      "code": "AZ",
+      "lat": 40.30347442626953,
+      "lon": 47.6461181640625
+    },
+    {
+      "name": "Georgia",
+      "code": "GE",
+      "lat": 42.222129821777344,
+      "lon": 43.4174919128418
+    },
+    {
+      "name": "Philippines",
+      "code": "PH",
+      "lat": 15.794548034667969,
+      "lon": 121.520263671875
+    },
+    {
+      "name": "Malaysia",
+      "code": "MY",
+      "lat": 3.590543746948242,
+      "lon": 114.6310043334961
+    },
+    {
+      "name": "Brunei",
+      "code": "BN",
+      "lat": 4.746951103210449,
+      "lon": 114.91158294677734
+    },
+    {
+      "name": "Slovenia",
+      "code": "SI",
+      "lat": 46.16263961791992,
+      "lon": 14.887544631958008
+    },
+    {
+      "name": "Finland",
+      "code": "FI",
+      "lat": 64.57638549804688,
+      "lon": 26.160003662109375
+    },
+    {
+      "name": "Slovakia",
+      "code": "SK",
+      "lat": 48.74152374267578,
+      "lon": 19.47013282775879
+    },
+    {
+      "name": "Czechia",
+      "code": "CZ",
+      "lat": 49.82185745239258,
+      "lon": 15.381803512573242
+    },
+    {
+      "name": "Eritrea",
+      "code": "ER",
+      "lat": 15.411579132080078,
+      "lon": 38.6927490234375
+    },
+    {
+      "name": "Japan",
+      "code": "JP",
+      "lat": 36.06684875488281,
+      "lon": 136.810546875
+    },
+    {
+      "name": "Paraguay",
+      "code": "PY",
+      "lat": -23.22696304321289,
+      "lon": -58.42963409423828
+    },
+    {
+      "name": "Yemen",
+      "code": "YE",
+      "lat": 15.969067573547363,
+      "lon": 47.482574462890625
+    },
+    {
+      "name": "Saudi Arabia",
+      "code": "SA",
+      "lat": 24.191688537597656,
+      "lon": 44.43701171875
+    },
+    {
+      "name": "Antarctica",
+      "code": "AQ",
+      "lat": -80.45832824707031,
+      "lon": 21.141494750976562
+    },
+    {
+      "name": "N. Cyprus",
+      "code": "-99",
+      "lat": 35.35416793823242,
+      "lon": 33.52083206176758
+    },
+    {
+      "name": "Cyprus",
+      "code": "CY",
+      "lat": 34.97984313964844,
+      "lon": 33.063167572021484
+    },
+    {
+      "name": "Morocco",
+      "code": "MA",
+      "lat": 29.927682876586914,
+      "lon": -8.457926750183105
+    },
+    {
+      "name": "Egypt",
+      "code": "EG",
+      "lat": 26.4808349609375,
+      "lon": 29.867219924926758
+    },
+    {
+      "name": "Libya",
+      "code": "LY",
+      "lat": 27.033498764038086,
+      "lon": 17.975574493408203
+    },
+    {
+      "name": "Ethiopia",
+      "code": "ET",
+      "lat": 8.720674514770508,
+      "lon": 39.46640396118164
+    },
+    {
+      "name": "Djibouti",
+      "code": "DJ",
+      "lat": 11.806817054748535,
+      "lon": 42.45724868774414
+    },
+    {
+      "name": "Somaliland",
+      "code": "-99",
+      "lat": 9.826923370361328,
+      "lon": 46.17436218261719
+    },
+    {
+      "name": "Uganda",
+      "code": "UG",
+      "lat": 1.3087495565414429,
+      "lon": 32.3112678527832
+    },
+    {
+      "name": "Rwanda",
+      "code": "RW",
+      "lat": -1.9980159997940063,
+      "lon": 29.831350326538086
+    },
+    {
+      "name": "Bosnia and Herz.",
+      "code": "BA",
+      "lat": 44.248348236083984,
+      "lon": 17.790565490722656
+    },
+    {
+      "name": "North Macedonia",
+      "code": "MK",
+      "lat": 41.633853912353516,
+      "lon": 21.6419620513916
+    },
+    {
+      "name": "Serbia",
+      "code": "RS",
+      "lat": 44.24793243408203,
+      "lon": 20.78316307067871
+    },
+    {
+      "name": "Montenegro",
+      "code": "ME",
+      "lat": 42.80704879760742,
+      "lon": 19.26218032836914
+    },
+    {
+      "name": "Kosovo",
+      "code": "-99",
+      "lat": 42.63409423828125,
+      "lon": 20.841665267944336
+    },
+    {
+      "name": "Trinidad and Tobago",
+      "code": "TT",
+      "lat": 10.458333969116211,
+      "lon": -61.359375
+    },
+    {
+      "name": "S. Sudan",
+      "code": "SS",
+      "lat": 7.365419864654541,
+      "lon": 30.161352157592773
+    }
+  ],
+  "regions": [
+    null,
+    {
+      "name": "Western Australia",
+      "code": "WA",
+      "lat": -25.372575759887695,
+      "lon": 122.17440795898438,
+      "countryId": 138
+    },
+    {
+      "name": "Northern Territory",
+      "code": "NT",
+      "lat": -19.36068344116211,
+      "lon": 133.39903259277344,
+      "countryId": 138
+    },
+    {
+      "name": "South Australia",
+      "code": "SA",
+      "lat": -30.034656524658203,
+      "lon": 135.85267639160156,
+      "countryId": 138
+    },
+    {
+      "name": "Queensland",
+      "code": "QL",
+      "lat": -22.46878433227539,
+      "lon": 144.53904724121094,
+      "countryId": 138
+    },
+    {
+      "name": "Tasmania",
+      "code": "TS",
+      "lat": -41.98797607421875,
+      "lon": 146.57017517089844,
+      "countryId": 138
+    },
+    {
+      "name": "Victoria",
+      "code": "VI",
+      "lat": -36.801048278808594,
+      "lon": 144.23887634277344,
+      "countryId": 138
+    },
+    {
+      "name": "Australian Capital Territory",
+      "code": "CT",
+      "lat": -35.44517517089844,
+      "lon": 148.9802703857422,
+      "countryId": 138
+    },
+    {
+      "name": "Jervis Bay Territory",
+      "code": "JB",
+      "lat": -35.125,
+      "lon": 150.625,
+      "countryId": 138
+    },
+    {
+      "name": "New South Wales",
+      "code": "NS",
+      "lat": -32.10235595703125,
+      "lon": 147.00257873535156,
+      "countryId": 138
+    },
+    {
+      "name": "Acre",
+      "code": "AC",
+      "lat": -9.257716178894043,
+      "lon": -70.5606689453125,
+      "countryId": 30
+    },
+    {
+      "name": "Rond\u00f4nia",
+      "code": "RO",
+      "lat": -10.870014190673828,
+      "lon": -62.92300796508789,
+      "countryId": 30
+    },
+    {
+      "name": "Roraima",
+      "code": "RR",
+      "lat": 2.1193771362304688,
+      "lon": -61.45923614501953,
+      "countryId": 30
+    },
+    {
+      "name": "Amazonas",
+      "code": "AM",
+      "lat": -4.09368896484375,
+      "lon": -64.73566436767578,
+      "countryId": 30
+    },
+    {
+      "name": "Par\u00e1",
+      "code": "PA",
+      "lat": -4.063413619995117,
+      "lon": -53.29925537109375,
+      "countryId": 30
+    },
+    {
+      "name": "Mato Grosso do Sul",
+      "code": "MS",
+      "lat": -20.293994903564453,
+      "lon": -54.888336181640625,
+      "countryId": 30
+    },
+    {
+      "name": "Amap\u00e1",
+      "code": "AP",
+      "lat": 1.4938644170761108,
+      "lon": -52.05759811401367,
+      "countryId": 30
+    },
+    {
+      "name": "Mato Grosso",
+      "code": "MT",
+      "lat": -12.934385299682617,
+      "lon": -55.985496520996094,
+      "countryId": 30
+    },
+    {
+      "name": "Paran\u00e1",
+      "code": "PR",
+      "lat": -24.601224899291992,
+      "lon": -51.62620544433594,
+      "countryId": 30
+    },
+    {
+      "name": "Distrito Federal",
+      "code": "DF",
+      "lat": -15.713384628295898,
+      "lon": -47.821964263916016,
+      "countryId": 30
+    },
+    {
+      "name": "Goi\u00e1s",
+      "code": "GO",
+      "lat": -15.97422981262207,
+      "lon": -49.6291389465332,
+      "countryId": 30
+    },
+    {
+      "name": "Tocantins",
+      "code": "TO",
+      "lat": -10.091320037841797,
+      "lon": -48.351905822753906,
+      "countryId": 30
+    },
+    {
+      "name": "S\u00e3o Paulo",
+      "code": "SP",
+      "lat": -22.21607780456543,
+      "lon": -48.74637222290039,
+      "countryId": 30
+    },
+    {
+      "name": "Maranh\u00e3o",
+      "code": "MA",
+      "lat": -5.089081764221191,
+      "lon": -45.3514518737793,
+      "countryId": 30
+    },
+    {
+      "name": "Rio de Janeiro",
+      "code": "RJ",
+      "lat": -22.179094314575195,
+      "lon": -42.79458999633789,
+      "countryId": 30
+    },
+    {
+      "name": "Piau\u00ed",
+      "code": "PI",
+      "lat": -7.339547634124756,
+      "lon": -43.019866943359375,
+      "countryId": 30
+    },
+    {
+      "name": "Minas Gerais",
+      "code": "MG",
+      "lat": -18.41942596435547,
+      "lon": -44.73845672607422,
+      "countryId": 30
+    },
+    {
+      "name": "Esp\u00edrito Santo",
+      "code": "ES",
+      "lat": -19.536823272705078,
+      "lon": -40.754844665527344,
+      "countryId": 30
+    },
+    {
+      "name": "Bahia",
+      "code": "BA",
+      "lat": -12.453272819519043,
+      "lon": -41.75954055786133,
+      "countryId": 30
+    },
+    {
+      "name": "Cear\u00e1",
+      "code": "CE",
+      "lat": -5.10606050491333,
+      "lon": -39.68354034423828,
+      "countryId": 30
+    },
+    {
+      "name": "Sergipe",
+      "code": "SE",
+      "lat": -10.557539939880371,
+      "lon": -37.503971099853516,
+      "countryId": 30
+    },
+    {
+      "name": "Alagoas",
+      "code": "AL",
+      "lat": -9.46410846710205,
+      "lon": -36.66130065917969,
+      "countryId": 30
+    },
+    {
+      "name": "Rio Grande do Norte",
+      "code": "RN",
+      "lat": -5.830496788024902,
+      "lon": -36.74454879760742,
+      "countryId": 30
+    },
+    {
+      "name": "Pernambuco",
+      "code": "PE",
+      "lat": -8.297601699829102,
+      "lon": -38.051876068115234,
+      "countryId": 30
+    },
+    {
+      "name": "Para\u00edba",
+      "code": "PB",
+      "lat": -7.075631618499756,
+      "lon": -36.880924224853516,
+      "countryId": 30
+    },
+    {
+      "name": "Santa Catarina",
+      "code": "SC",
+      "lat": -27.212936401367188,
+      "lon": -50.59093475341797,
+      "countryId": 30
+    },
+    {
+      "name": "Rio Grande do Sul",
+      "code": "RS",
+      "lat": -29.72532844543457,
+      "lon": -53.34265899658203,
+      "countryId": 30
+    },
+    {
+      "name": "Alberta",
+      "code": "AB",
+      "lat": 55.22476577758789,
+      "lon": -114.53327178955078,
+      "countryId": 4
+    },
+    {
+      "name": "British Columbia",
+      "code": "BC",
+      "lat": 55.024009704589844,
+      "lon": -124.76721954345703,
+      "countryId": 4
+    },
+    {
+      "name": "Manitoba",
+      "code": "MB",
+      "lat": 54.9677619934082,
+      "lon": -97.49188995361328,
+      "countryId": 4
+    },
+    {
+      "name": "New Brunswick",
+      "code": "NB",
+      "lat": 46.67720031738281,
+      "lon": -66.39798736572266,
+      "countryId": 4
+    },
+    {
+      "name": "Newfoundland and Labrador",
+      "code": "NL",
+      "lat": 54.43617630004883,
+      "lon": -62.02583694458008,
+      "countryId": 4
+    },
+    {
+      "name": "Nova Scotia",
+      "code": "NS",
+      "lat": 44.96725845336914,
+      "lon": -63.94717025756836,
+      "countryId": 4
+    },
+    {
+      "name": "Northwest Territories",
+      "code": "NT",
+      "lat": 64.47490692138672,
+      "lon": -119.81404113769531,
+      "countryId": 4
+    },
+    {
+      "name": "Nunavut",
+      "code": "NU",
+      "lat": 66.03865051269531,
+      "lon": -98.62799835205078,
+      "countryId": 4
+    },
+    {
+      "name": "Ontario",
+      "code": "ON",
+      "lat": 50.064598083496094,
+      "lon": -85.8208236694336,
+      "countryId": 4
+    },
+    {
+      "name": "Prince Edward Island",
+      "code": "PE",
+      "lat": 46.44722366333008,
+      "lon": -63.34722900390625,
+      "countryId": 4
+    },
+    {
+      "name": "Qu\u00e9bec",
+      "code": "QC",
+      "lat": 53.80299377441406,
+      "lon": -71.84127044677734,
+      "countryId": 4
+    },
+    {
+      "name": "Saskatchewan",
+      "code": "SK",
+      "lat": 54.45085906982422,
+      "lon": -105.91783905029297,
+      "countryId": 4
+    },
+    {
+      "name": "Yukon",
+      "code": "YT",
+      "lat": 63.72283172607422,
+      "lon": -135.5611114501953,
+      "countryId": 4
+    },
+    {
+      "name": "Alaska",
+      "code": "AK",
+      "lat": 64.48981475830078,
+      "lon": -152.7745361328125,
+      "countryId": 5
+    },
+    {
+      "name": "Alabama",
+      "code": "AL",
+      "lat": 32.87710189819336,
+      "lon": -86.88616180419922,
+      "countryId": 5
+    },
+    {
+      "name": "Arkansas",
+      "code": "AR",
+      "lat": 35.018882751464844,
+      "lon": -92.45191192626953,
+      "countryId": 5
+    },
+    {
+      "name": "Arizona",
+      "code": "AZ",
+      "lat": 34.373958587646484,
+      "lon": -111.7078857421875,
+      "countryId": 5
+    },
+    {
+      "name": "California",
+      "code": "CA",
+      "lat": 37.316158294677734,
+      "lon": -119.66804504394531,
+      "countryId": 5
+    },
+    {
+      "name": "Colorado",
+      "code": "CO",
+      "lat": 39.125,
+      "lon": -105.625,
+      "countryId": 5
+    },
+    {
+      "name": "Connecticut",
+      "code": "CT",
+      "lat": 41.683685302734375,
+      "lon": -72.74706268310547,
+      "countryId": 5
+    },
+    {
+      "name": "District of Columbia",
+      "code": "DC",
+      "lat": 38.95833206176758,
+      "lon": -77.08333587646484,
+      "countryId": 5
+    },
+    {
+      "name": "Delaware",
+      "code": "DE",
+      "lat": 39.0290412902832,
+      "lon": -75.54924011230469,
+      "countryId": 5
+    },
+    {
+      "name": "Florida",
+      "code": "FL",
+      "lat": 28.780010223388672,
+      "lon": -82.70862579345703,
+      "countryId": 5
+    },
+    {
+      "name": "Georgia",
+      "code": "GA",
+      "lat": 32.682010650634766,
+      "lon": -83.4789810180664,
+      "countryId": 5
+    },
+    {
+      "name": "Hawaii",
+      "code": "HI",
+      "lat": 19.61742401123047,
+      "lon": -155.5454559326172,
+      "countryId": 5
+    },
+    {
+      "name": "Iowa",
+      "code": "IA",
+      "lat": 42.15760803222656,
+      "lon": -93.53804016113281,
+      "countryId": 5
+    },
+    {
+      "name": "Idaho",
+      "code": "ID",
+      "lat": 44.51600646972656,
+      "lon": -114.7311782836914,
+      "countryId": 5
+    },
+    {
+      "name": "Illinois",
+      "code": "IL",
+      "lat": 40.18305206298828,
+      "lon": -89.21542358398438,
+      "countryId": 5
+    },
+    {
+      "name": "Indiana",
+      "code": "IN",
+      "lat": 39.94541549682617,
+      "lon": -86.32999420166016,
+      "countryId": 5
+    },
+    {
+      "name": "Kansas",
+      "code": "KS",
+      "lat": 38.60424041748047,
+      "lon": -98.43737030029297,
+      "countryId": 5
+    },
+    {
+      "name": "Kentucky",
+      "code": "KY",
+      "lat": 37.54887390136719,
+      "lon": -85.42396545410156,
+      "countryId": 5
+    },
+    {
+      "name": "Louisiana",
+      "code": "LA",
+      "lat": 31.125680923461914,
+      "lon": -91.9834976196289,
+      "countryId": 5
+    },
+    {
+      "name": "Massachusetts",
+      "code": "MA",
+      "lat": 42.3132209777832,
+      "lon": -71.75862121582031,
+      "countryId": 5
+    },
+    {
+      "name": "Maryland",
+      "code": "MD",
+      "lat": 39.10430145263672,
+      "lon": -76.91040802001953,
+      "countryId": 5
+    },
+    {
+      "name": "Maine",
+      "code": "ME",
+      "lat": 45.439170837402344,
+      "lon": -69.2612533569336,
+      "countryId": 5
+    },
+    {
+      "name": "Michigan",
+      "code": "MI",
+      "lat": 44.91884994506836,
+      "lon": -85.79753875732422,
+      "countryId": 5
+    },
+    {
+      "name": "Minnesota",
+      "code": "MN",
+      "lat": 46.42327880859375,
+      "lon": -94.17684173583984,
+      "countryId": 5
+    },
+    {
+      "name": "Missouri",
+      "code": "MO",
+      "lat": 38.433868408203125,
+      "lon": -92.48880767822266,
+      "countryId": 5
+    },
+    {
+      "name": "Mississippi",
+      "code": "MS",
+      "lat": 32.8110466003418,
+      "lon": -89.72154235839844,
+      "countryId": 5
+    },
+    {
+      "name": "Montana",
+      "code": "MT",
+      "lat": 47.05406188964844,
+      "lon": -109.74681091308594,
+      "countryId": 5
+    },
+    {
+      "name": "North Carolina",
+      "code": "NC",
+      "lat": 35.604984283447266,
+      "lon": -79.46709442138672,
+      "countryId": 5
+    },
+    {
+      "name": "North Dakota",
+      "code": "ND",
+      "lat": 47.434696197509766,
+      "lon": -100.52587127685547,
+      "countryId": 5
+    },
+    {
+      "name": "Nebraska",
+      "code": "NE",
+      "lat": 41.64546585083008,
+      "lon": -99.88848876953125,
+      "countryId": 5
+    },
+    {
+      "name": "New Hampshire",
+      "code": "NH",
+      "lat": 43.75309371948242,
+      "lon": -71.62223815917969,
+      "countryId": 5
+    },
+    {
+      "name": "New Jersey",
+      "code": "NJ",
+      "lat": 40.2474479675293,
+      "lon": -74.72193908691406,
+      "countryId": 5
+    },
+    {
+      "name": "New Mexico",
+      "code": "NM",
+      "lat": 34.503726959228516,
+      "lon": -106.21048736572266,
+      "countryId": 5
+    },
+    {
+      "name": "Nevada",
+      "code": "NV",
+      "lat": 39.45574188232422,
+      "lon": -116.72201538085938,
+      "countryId": 5
+    },
+    {
+      "name": "New York",
+      "code": "NY",
+      "lat": 43.07522201538086,
+      "lon": -75.79278564453125,
+      "countryId": 5
+    },
+    {
+      "name": "Ohio",
+      "code": "OH",
+      "lat": 40.45001983642578,
+      "lon": -82.75424194335938,
+      "countryId": 5
+    },
+    {
+      "name": "Oklahoma",
+      "code": "OK",
+      "lat": 35.69095230102539,
+      "lon": -97.6402587890625,
+      "countryId": 5
+    },
+    {
+      "name": "Oregon",
+      "code": "OR",
+      "lat": 44.044944763183594,
+      "lon": -120.58614349365234,
+      "countryId": 5
+    },
+    {
+      "name": "Pennsylvania",
+      "code": "PA",
+      "lat": 40.9517822265625,
+      "lon": -77.92657470703125,
+      "countryId": 5
+    },
+    {
+      "name": "Rhode Island",
+      "code": "RI",
+      "lat": 41.7453727722168,
+      "lon": -71.6342544555664,
+      "countryId": 5
+    },
+    {
+      "name": "South Carolina",
+      "code": "SC",
+      "lat": 33.95305633544922,
+      "lon": -80.96044158935547,
+      "countryId": 5
+    },
+    {
+      "name": "South Dakota",
+      "code": "SD",
+      "lat": 44.50087356567383,
+      "lon": -100.25281524658203,
+      "countryId": 5
+    },
+    {
+      "name": "Tennessee",
+      "code": "TN",
+      "lat": 35.88832092285156,
+      "lon": -86.33352661132812,
+      "countryId": 5
+    },
+    {
+      "name": "Texas",
+      "code": "TX",
+      "lat": 31.557104110717773,
+      "lon": -99.4556655883789,
+      "countryId": 5
+    },
+    {
+      "name": "Utah",
+      "code": "UT",
+      "lat": 39.45627212524414,
+      "lon": -111.75323486328125,
+      "countryId": 5
+    },
+    {
+      "name": "Virginia",
+      "code": "VA",
+      "lat": 37.55727005004883,
+      "lon": -79.00133514404297,
+      "countryId": 5
+    },
+    {
+      "name": "Vermont",
+      "code": "VT",
+      "lat": 44.15171813964844,
+      "lon": -72.70515441894531,
+      "countryId": 5
+    },
+    {
+      "name": "Washington",
+      "code": "WA",
+      "lat": 47.402915954589844,
+      "lon": -120.58756256103516,
+      "countryId": 5
+    },
+    {
+      "name": "Wisconsin",
+      "code": "WI",
+      "lat": 44.71366500854492,
+      "lon": -89.76522827148438,
+      "countryId": 5
+    },
+    {
+      "name": "West Virginia",
+      "code": "WV",
+      "lat": 38.723350524902344,
+      "lon": -80.56610870361328,
+      "countryId": 5
+    },
+    {
+      "name": "Wyoming",
+      "code": "WY",
+      "lat": 43.125,
+      "lon": -107.625,
+      "countryId": 5
+    },
+    {
+      "name": "Gansu",
+      "code": "GS",
+      "lat": 37.79048538208008,
+      "lon": 100.99369049072266,
+      "countryId": 140
+    },
+    {
+      "name": "Qinghai",
+      "code": "QH",
+      "lat": 35.77504348754883,
+      "lon": 95.96458435058594,
+      "countryId": 140
+    },
+    {
+      "name": "Guangxi",
+      "code": "GX",
+      "lat": 23.882020950317383,
+      "lon": 108.71129608154297,
+      "countryId": 140
+    },
+    {
+      "name": "Guizhou",
+      "code": "GZ",
+      "lat": 26.870723724365234,
+      "lon": 106.83560943603516,
+      "countryId": 140
+    },
+    {
+      "name": "Chongqing",
+      "code": "CQ",
+      "lat": 30.105480194091797,
+      "lon": 107.82646179199219,
+      "countryId": 140
+    },
+    {
+      "name": "Beijing",
+      "code": "BJ",
+      "lat": 40.23475646972656,
+      "lon": 116.3912582397461,
+      "countryId": 140
+    },
+    {
+      "name": "Fujian",
+      "code": "FJ",
+      "lat": 26.134780883789062,
+      "lon": 117.97281646728516,
+      "countryId": 140
+    },
+    {
+      "name": "Anhui",
+      "code": "AH",
+      "lat": 31.882081985473633,
+      "lon": 117.19839477539062,
+      "countryId": 140
+    },
+    {
+      "name": "Guangdong",
+      "code": "GD",
+      "lat": 23.37191390991211,
+      "lon": 113.35211944580078,
+      "countryId": 140
+    },
+    {
+      "name": "Xizang",
+      "code": "XZ",
+      "lat": 31.712116241455078,
+      "lon": 88.12117767333984,
+      "countryId": 140
+    },
+    {
+      "name": "Sikkim",
+      "code": "SK",
+      "lat": 27.610294342041016,
+      "lon": 88.41421508789062,
+      "countryId": 99
+    },
+    {
+      "name": "Xinjiang",
+      "code": "XJ",
+      "lat": 41.14862823486328,
+      "lon": 85.14108276367188,
+      "countryId": 140
+    },
+    {
+      "name": "Hainan",
+      "code": "HA",
+      "lat": 19.236114501953125,
+      "lon": 109.70698547363281,
+      "countryId": 140
+    },
+    {
+      "name": "Ningxia",
+      "code": "NX",
+      "lat": 37.302677154541016,
+      "lon": 106.10921478271484,
+      "countryId": 140
+    },
+    {
+      "name": "Shaanxi",
+      "code": "SA",
+      "lat": 35.23933410644531,
+      "lon": 108.80333709716797,
+      "countryId": 140
+    },
+    {
+      "name": "Shanxi",
+      "code": "SX",
+      "lat": 37.6302375793457,
+      "lon": 112.25130462646484,
+      "countryId": 140
+    },
+    {
+      "name": "Hubei",
+      "code": "HU",
+      "lat": 31.02742576599121,
+      "lon": 112.1828842163086,
+      "countryId": 140
+    },
+    {
+      "name": "Hunan",
+      "code": "HN",
+      "lat": 27.62649154663086,
+      "lon": 111.64745330810547,
+      "countryId": 140
+    },
+    {
+      "name": "Sichuan",
+      "code": "SC",
+      "lat": 30.660945892333984,
+      "lon": 102.68386840820312,
+      "countryId": 140
+    },
+    {
+      "name": "Yunnan",
+      "code": "YN",
+      "lat": 25.059829711914062,
+      "lon": 101.46949768066406,
+      "countryId": 140
+    },
+    {
+      "name": "Hebei",
+      "code": "HB",
+      "lat": 39.59891128540039,
+      "lon": 116.10440826416016,
+      "countryId": 140
+    },
+    {
+      "name": "Henan",
+      "code": "HE",
+      "lat": 33.92916488647461,
+      "lon": 113.6251220703125,
+      "countryId": 140
+    },
+    {
+      "name": "Liaoning",
+      "code": "LN",
+      "lat": 41.2998161315918,
+      "lon": 122.51932525634766,
+      "countryId": 140
+    },
+    {
+      "name": "Shandong",
+      "code": "SD",
+      "lat": 36.395179748535156,
+      "lon": 118.17060089111328,
+      "countryId": 140
+    },
+    {
+      "name": "Tianjin",
+      "code": "TJ",
+      "lat": 39.371036529541016,
+      "lon": 117.29034423828125,
+      "countryId": 140
+    },
+    {
+      "name": "Jiangxi",
+      "code": "JX",
+      "lat": 27.650848388671875,
+      "lon": 115.67871856689453,
+      "countryId": 140
+    },
+    {
+      "name": "Jiangsu",
+      "code": "JS",
+      "lat": 33.029354095458984,
+      "lon": 119.33262634277344,
+      "countryId": 140
+    },
+    {
+      "name": "Shanghai",
+      "code": "SH",
+      "lat": 31.10416603088379,
+      "lon": 121.3125,
+      "countryId": 140
+    },
+    {
+      "name": "Zhejiang",
+      "code": "ZJ",
+      "lat": 29.214096069335938,
+      "lon": 120.02084350585938,
+      "countryId": 140
+    },
+    {
+      "name": "Jilin",
+      "code": "JL",
+      "lat": 43.709407806396484,
+      "lon": 126.15082550048828,
+      "countryId": 140
+    },
+    {
+      "name": "Inner Mongol",
+      "code": "NM",
+      "lat": 44.13840866088867,
+      "lon": 113.89562225341797,
+      "countryId": 140
+    },
+    {
+      "name": "Heilongjiang",
+      "code": "HL",
+      "lat": 47.954410552978516,
+      "lon": 127.68148040771484,
+      "countryId": 140
+    },
+    {
+      "name": "Aceh",
+      "code": "AC",
+      "lat": 4.31987190246582,
+      "lon": 96.90576934814453,
+      "countryId": 9
+    },
+    {
+      "name": "Kalimantan Timur",
+      "code": "KI",
+      "lat": 1.372411847114563,
+      "lon": 116.31702423095703,
+      "countryId": 9
+    },
+    {
+      "name": "Jawa Barat",
+      "code": "JR",
+      "lat": -6.871269226074219,
+      "lon": 107.57027435302734,
+      "countryId": 9
+    },
+    {
+      "name": "Jawa Tengah",
+      "code": "JT",
+      "lat": -7.222435474395752,
+      "lon": 110.16859436035156,
+      "countryId": 9
+    },
+    {
+      "name": "Bengkulu",
+      "code": "BE",
+      "lat": -3.464431047439575,
+      "lon": 102.3343505859375,
+      "countryId": 9
+    },
+    {
+      "name": "Banten",
+      "code": "BT",
+      "lat": -6.465278148651123,
+      "lon": 106.0381851196289,
+      "countryId": 9
+    },
+    {
+      "name": "Jakarta Raya",
+      "code": "JK",
+      "lat": -6.175000190734863,
+      "lon": 106.80833435058594,
+      "countryId": 9
+    },
+    {
+      "name": "Kalimantan Barat",
+      "code": "KB",
+      "lat": -0.05946271866559982,
+      "lon": 111.12208557128906,
+      "countryId": 9
+    },
+    {
+      "name": "Lampung",
+      "code": "LA",
+      "lat": -4.881720066070557,
+      "lon": 104.94086456298828,
+      "countryId": 9
+    },
+    {
+      "name": "Sumatera Selatan",
+      "code": "SL",
+      "lat": -3.1916663646698,
+      "lon": 104.1410903930664,
+      "countryId": 9
+    },
+    {
+      "name": "Bangka-Belitung",
+      "code": "BB",
+      "lat": -2.2377450466156006,
+      "lon": 105.9468994140625,
+      "countryId": 9
+    },
+    {
+      "name": "Bali",
+      "code": "BA",
+      "lat": -8.352011680603027,
+      "lon": 115.06465148925781,
+      "countryId": 9
+    },
+    {
+      "name": "Jawa Timur",
+      "code": "JI",
+      "lat": -7.768736362457275,
+      "lon": 112.58863830566406,
+      "countryId": 9
+    },
+    {
+      "name": "Kalimantan Selatan",
+      "code": "KS",
+      "lat": -2.84639310836792,
+      "lon": 115.36256408691406,
+      "countryId": 9
+    },
+    {
+      "name": "Nusa Tenggara Timur",
+      "code": "NT",
+      "lat": -8.536905288696289,
+      "lon": 121.26786041259766,
+      "countryId": 9
+    },
+    {
+      "name": "Sulawesi Selatan",
+      "code": "SE",
+      "lat": -3.5815868377685547,
+      "lon": 120.12548828125,
+      "countryId": 9
+    },
+    {
+      "name": "Sulawesi Barat",
+      "code": "SR",
+      "lat": -2.391666889190674,
+      "lon": 119.30594635009766,
+      "countryId": 9
+    },
+    {
+      "name": "Kepulauan Riau",
+      "code": "KR",
+      "lat": -0.10833332687616348,
+      "lon": 104.6583251953125,
+      "countryId": 9
+    },
+    {
+      "name": "Gorontalo",
+      "code": "GO",
+      "lat": 0.7039474248886108,
+      "lon": 122.30482482910156,
+      "countryId": 9
+    },
+    {
+      "name": "Jambi",
+      "code": "JA",
+      "lat": -1.6508946418762207,
+      "lon": 102.73283386230469,
+      "countryId": 9
+    },
+    {
+      "name": "Kalimantan Tengah",
+      "code": "KT",
+      "lat": -1.5430080890655518,
+      "lon": 113.38337707519531,
+      "countryId": 9
+    },
+    {
+      "name": "Papua Barat",
+      "code": "IB",
+      "lat": -2.09831166267395,
+      "lon": 133.1244659423828,
+      "countryId": 9
+    },
+    {
+      "name": "Sumatera Utara",
+      "code": "SU",
+      "lat": 2.3419671058654785,
+      "lon": 99.08971405029297,
+      "countryId": 9
+    },
+    {
+      "name": "Riau",
+      "code": "RI",
+      "lat": 0.5196428298950195,
+      "lon": 101.71546936035156,
+      "countryId": 9
+    },
+    {
+      "name": "Sulawesi Utara",
+      "code": "SW",
+      "lat": 0.9337431192398071,
+      "lon": 124.18648529052734,
+      "countryId": 9
+    },
+    {
+      "name": "Maluku Utara",
+      "code": "LA",
+      "lat": 0.9115168452262878,
+      "lon": 128.0304412841797,
+      "countryId": 9
+    },
+    {
+      "name": "Sumatera Barat",
+      "code": "SB",
+      "lat": -0.6218672394752502,
+      "lon": 100.6143569946289,
+      "countryId": 9
+    },
+    {
+      "name": "Yogyakarta",
+      "code": "YO",
+      "lat": -7.863889217376709,
+      "lon": 110.4638900756836,
+      "countryId": 9
+    },
+    {
+      "name": "Maluku",
+      "code": "MA",
+      "lat": -3.1683332920074463,
+      "lon": 129.38833618164062,
+      "countryId": 9
+    },
+    {
+      "name": "Nusa Tenggara Barat",
+      "code": "NB",
+      "lat": -8.58626937866211,
+      "lon": 117.84918212890625,
+      "countryId": 9
+    },
+    {
+      "name": "Sulawesi Tenggara",
+      "code": "SG",
+      "lat": -3.7792556285858154,
+      "lon": 121.8200454711914,
+      "countryId": 9
+    },
+    {
+      "name": "Sulawesi Tengah",
+      "code": "ST",
+      "lat": -0.8847221732139587,
+      "lon": 121.12361145019531,
+      "countryId": 9
+    },
+    {
+      "name": "Papua",
+      "code": "PA",
+      "lat": -4.53552770614624,
+      "lon": 138.6348419189453,
+      "countryId": 9
+    },
+    {
+      "name": "Telangana",
+      "code": "TG",
+      "lat": 17.82294273376465,
+      "lon": 79.03384399414062,
+      "countryId": 99
+    },
+    {
+      "name": "Ladakh",
+      "code": "LA",
+      "lat": 33.937095642089844,
+      "lon": 77.576416015625,
+      "countryId": 99
+    },
+    {
+      "name": "Chandigarh",
+      "code": "CH",
+      "lat": 30.79166603088379,
+      "lon": 76.70833587646484,
+      "countryId": 99
+    },
+    {
+      "name": "Delhi",
+      "code": "DL",
+      "lat": 28.70075798034668,
+      "lon": 77.1022720336914,
+      "countryId": 99
+    },
+    {
+      "name": "Himachal Pradesh",
+      "code": "HP",
+      "lat": 31.986967086791992,
+      "lon": 77.1855697631836,
+      "countryId": 99
+    },
+    {
+      "name": "Haryana",
+      "code": "HR",
+      "lat": 29.25088882446289,
+      "lon": 76.28368377685547,
+      "countryId": 99
+    },
+    {
+      "name": "Jammu and Kashmir",
+      "code": "JK",
+      "lat": 33.59092712402344,
+      "lon": 75.01128387451172,
+      "countryId": 99
+    },
+    {
+      "name": "Andhra Pradesh",
+      "code": "AP",
+      "lat": 15.798344612121582,
+      "lon": 79.9234848022461,
+      "countryId": 99
+    },
+    {
+      "name": "Kerala",
+      "code": "KL",
+      "lat": 10.492116928100586,
+      "lon": 76.37049102783203,
+      "countryId": 99
+    },
+    {
+      "name": "Lakshadweep",
+      "code": "LD",
+      "lat": 8.291666984558105,
+      "lon": 73.04166412353516,
+      "countryId": 99
+    },
+    {
+      "name": "Odisha",
+      "code": "OR",
+      "lat": 20.53193473815918,
+      "lon": 84.34701538085938,
+      "countryId": 99
+    },
+    {
+      "name": "Dadra and Nagar Haveli and Daman and Diu",
+      "code": "DH",
+      "lat": 20.208332061767578,
+      "lon": 72.95832824707031,
+      "countryId": 99
+    },
+    {
+      "name": "Karnataka",
+      "code": "KA",
+      "lat": 14.771278381347656,
+      "lon": 76.15914916992188,
+      "countryId": 99
+    },
+    {
+      "name": "Goa",
+      "code": "GA",
+      "lat": 15.393519401550293,
+      "lon": 73.98611450195312,
+      "countryId": 99
+    },
+    {
+      "name": "Andaman and Nicobar",
+      "code": "AN",
+      "lat": 12.645000457763672,
+      "lon": 92.79499816894531,
+      "countryId": 99
+    },
+    {
+      "name": "Assam",
+      "code": "AS",
+      "lat": 26.3624210357666,
+      "lon": 92.7675552368164,
+      "countryId": 99
+    },
+    {
+      "name": "Manipur",
+      "code": "MN",
+      "lat": 24.780555725097656,
+      "lon": 93.83611297607422,
+      "countryId": 99
+    },
+    {
+      "name": "Nagaland",
+      "code": "NL",
+      "lat": 26.099885940551758,
+      "lon": 94.40925598144531,
+      "countryId": 99
+    },
+    {
+      "name": "Meghalaya",
+      "code": "ML",
+      "lat": 25.588329315185547,
+      "lon": 91.23332977294922,
+      "countryId": 99
+    },
+    {
+      "name": "Punjab",
+      "code": "PB",
+      "lat": 30.89429473876953,
+      "lon": 75.36268615722656,
+      "countryId": 99
+    },
+    {
+      "name": "Rajasthan",
+      "code": "RJ",
+      "lat": 26.611528396606445,
+      "lon": 73.83473205566406,
+      "countryId": 99
+    },
+    {
+      "name": "Uttar Pradesh",
+      "code": "UP",
+      "lat": 26.937057495117188,
+      "lon": 80.493896484375,
+      "countryId": 99
+    },
+    {
+      "name": "Uttarakhand",
+      "code": "UT",
+      "lat": 30.202882766723633,
+      "lon": 79.1491470336914,
+      "countryId": 99
+    },
+    {
+      "name": "Jharkhand",
+      "code": "JH",
+      "lat": 23.68456268310547,
+      "lon": 85.52253723144531,
+      "countryId": 99
+    },
+    {
+      "name": "West Bengal",
+      "code": "WB",
+      "lat": 23.955514907836914,
+      "lon": 87.95059204101562,
+      "countryId": 99
+    },
+    {
+      "name": "Bihar",
+      "code": "BR",
+      "lat": 25.733938217163086,
+      "lon": 85.5626220703125,
+      "countryId": 99
+    },
+    {
+      "name": "Chhattisgarh",
+      "code": "CT",
+      "lat": 21.28244400024414,
+      "lon": 81.98360443115234,
+      "countryId": 99
+    },
+    {
+      "name": "Madhya Pradesh",
+      "code": "MP",
+      "lat": 23.626497268676758,
+      "lon": 78.2389144897461,
+      "countryId": 99
+    },
+    {
+      "name": "Puducherry",
+      "code": "PY",
+      "lat": 11.902777671813965,
+      "lon": 79.7638931274414,
+      "countryId": 99
+    },
+    {
+      "name": "Tamil Nadu",
+      "code": "TN",
+      "lat": 11.057443618774414,
+      "lon": 78.35347747802734,
+      "countryId": 99
+    },
+    {
+      "name": "Gujarat",
+      "code": "IN-GJ",
+      "lat": 22.747713088989258,
+      "lon": 71.54751586914062,
+      "countryId": 99
+    },
+    {
+      "name": "Arunachal Pradesh",
+      "code": "AR",
+      "lat": 28.06944465637207,
+      "lon": 94.63374328613281,
+      "countryId": 99
+    },
+    {
+      "name": "Mizoram",
+      "code": "MZ",
+      "lat": 23.340909957885742,
+      "lon": 92.7689437866211,
+      "countryId": 99
+    },
+    {
+      "name": "Tripura",
+      "code": "TR",
+      "lat": 23.805273056030273,
+      "lon": 91.68451690673828,
+      "countryId": 99
+    },
+    {
+      "name": "Tomsk",
+      "code": "TO",
+      "lat": 58.54093933105469,
+      "lon": 82.1357421875,
+      "countryId": 19
+    },
+    {
+      "name": "Adygey",
+      "code": "AD",
+      "lat": 44.63105773925781,
+      "lon": 39.826515197753906,
+      "countryId": 19
+    },
+    {
+      "name": "Karachay-Cherkess",
+      "code": "KC",
+      "lat": 43.82320022583008,
+      "lon": 41.69932174682617,
+      "countryId": 19
+    },
+    {
+      "name": "Ingush",
+      "code": "IN",
+      "lat": 43.163455963134766,
+      "lon": 44.80448913574219,
+      "countryId": 19
+    },
+    {
+      "name": "Kabardin-Balkar",
+      "code": "KB",
+      "lat": 43.50883483886719,
+      "lon": 43.357322692871094,
+      "countryId": 19
+    },
+    {
+      "name": "North Ossetia",
+      "code": "NO",
+      "lat": 43.15625,
+      "lon": 44.232635498046875,
+      "countryId": 19
+    },
+    {
+      "name": "Stavropol'",
+      "code": "ST",
+      "lat": 44.96198272705078,
+      "lon": 43.336978912353516,
+      "countryId": 19
+    },
+    {
+      "name": "Chukchi Autonomous Okrug",
+      "code": "CK",
+      "lat": 66.48089599609375,
+      "lon": 170.56846618652344,
+      "countryId": 19
+    },
+    {
+      "name": "Kaliningrad",
+      "code": "KN",
+      "lat": 54.774810791015625,
+      "lon": 21.286985397338867,
+      "countryId": 19
+    },
+    {
+      "name": "Murmansk",
+      "code": "MM",
+      "lat": 65.71019744873047,
+      "lon": 33.833736419677734,
+      "countryId": 19
+    },
+    {
+      "name": "Novgorod",
+      "code": "NG",
+      "lat": 58.34392547607422,
+      "lon": 32.45456314086914,
+      "countryId": 19
+    },
+    {
+      "name": "Pskov",
+      "code": "PS",
+      "lat": 57.259220123291016,
+      "lon": 29.205873489379883,
+      "countryId": 19
+    },
+    {
+      "name": "Leningrad",
+      "code": "LN",
+      "lat": 60.05227279663086,
+      "lon": 31.587120056152344,
+      "countryId": 19
+    },
+    {
+      "name": "City of St. Petersburg",
+      "code": "SP",
+      "lat": 59.92934799194336,
+      "lon": 30.12137794494629,
+      "countryId": 19
+    },
+    {
+      "name": "Bryansk",
+      "code": "BR",
+      "lat": 52.938209533691406,
+      "lon": 33.369361877441406,
+      "countryId": 19
+    },
+    {
+      "name": "Smolensk",
+      "code": "SM",
+      "lat": 54.987972259521484,
+      "lon": 32.93372344970703,
+      "countryId": 19
+    },
+    {
+      "name": "Karelia",
+      "code": "KI",
+      "lat": 65.15277862548828,
+      "lon": 35.6805534362793,
+      "countryId": 19
+    },
+    {
+      "name": "Arkhangel'sk",
+      "code": "VO",
+      "lat": 63.46196746826172,
+      "lon": 43.0887451171875,
+      "countryId": 19
+    },
+    {
+      "name": "Ivanovo",
+      "code": "IV",
+      "lat": 57.075740814208984,
+      "lon": 41.69784927368164,
+      "countryId": 19
+    },
+    {
+      "name": "Vologda",
+      "code": "VO",
+      "lat": 60.014896392822266,
+      "lon": 40.49200439453125,
+      "countryId": 19
+    },
+    {
+      "name": "Kostroma",
+      "code": "KT",
+      "lat": 58.50760269165039,
+      "lon": 43.75846481323242,
+      "countryId": 19
+    },
+    {
+      "name": "Nizhegorod",
+      "code": "NZ",
+      "lat": 56.344200134277344,
+      "lon": 44.645652770996094,
+      "countryId": 19
+    },
+    {
+      "name": "Tver'",
+      "code": "TV",
+      "lat": 57.12533187866211,
+      "lon": 34.68330001831055,
+      "countryId": 19
+    },
+    {
+      "name": "Yaroslavl'",
+      "code": "YS",
+      "lat": 57.900840759277344,
+      "lon": 39.09261703491211,
+      "countryId": 19
+    },
+    {
+      "name": "Kaluga",
+      "code": "KG",
+      "lat": 54.40937423706055,
+      "lon": 35.421138763427734,
+      "countryId": 19
+    },
+    {
+      "name": "Kursk",
+      "code": "KS",
+      "lat": 51.72500991821289,
+      "lon": 36.03785705566406,
+      "countryId": 19
+    },
+    {
+      "name": "Lipetsk",
+      "code": "LP",
+      "lat": 52.680179595947266,
+      "lon": 39.10360336303711,
+      "countryId": 19
+    },
+    {
+      "name": "Moskovskaya",
+      "code": "MS",
+      "lat": 55.6875,
+      "lon": 37.595237731933594,
+      "countryId": 19
+    },
+    {
+      "name": "Moskva",
+      "code": "MS",
+      "lat": 55.530799865722656,
+      "lon": 37.338768005371094,
+      "countryId": 19
+    },
+    {
+      "name": "Orel",
+      "code": "OL",
+      "lat": 52.82114791870117,
+      "lon": 36.41581726074219,
+      "countryId": 19
+    },
+    {
+      "name": "Rostov",
+      "code": "RO",
+      "lat": 47.78120803833008,
+      "lon": 41.211273193359375,
+      "countryId": 19
+    },
+    {
+      "name": "Tula",
+      "code": "TL",
+      "lat": 53.93294906616211,
+      "lon": 37.519588470458984,
+      "countryId": 19
+    },
+    {
+      "name": "Volgograd",
+      "code": "VG",
+      "lat": 49.64627456665039,
+      "lon": 44.12849807739258,
+      "countryId": 19
+    },
+    {
+      "name": "Belgorod",
+      "code": "BL",
+      "lat": 50.703125,
+      "lon": 37.44895935058594,
+      "countryId": 19
+    },
+    {
+      "name": "Krasnodar",
+      "code": "KD",
+      "lat": 45.2516975402832,
+      "lon": 39.46768569946289,
+      "countryId": 19
+    },
+    {
+      "name": "Mordovia",
+      "code": "MR",
+      "lat": 54.4067497253418,
+      "lon": 44.388885498046875,
+      "countryId": 19
+    },
+    {
+      "name": "Penza",
+      "code": "PZ",
+      "lat": 53.24404525756836,
+      "lon": 44.59064483642578,
+      "countryId": 19
+    },
+    {
+      "name": "Ryazan'",
+      "code": "RZ",
+      "lat": 54.3653450012207,
+      "lon": 40.59531784057617,
+      "countryId": 19
+    },
+    {
+      "name": "Tambov",
+      "code": "TB",
+      "lat": 52.71400451660156,
+      "lon": 41.518104553222656,
+      "countryId": 19
+    },
+    {
+      "name": "Vladimir",
+      "code": "VL",
+      "lat": 56.053192138671875,
+      "lon": 40.5780143737793,
+      "countryId": 19
+    },
+    {
+      "name": "Voronezh",
+      "code": "VR",
+      "lat": 51.0069694519043,
+      "lon": 40.16800308227539,
+      "countryId": 19
+    },
+    {
+      "name": "Bashkortostan",
+      "code": "BK",
+      "lat": 54.305274963378906,
+      "lon": 56.52302932739258,
+      "countryId": 19
+    },
+    {
+      "name": "Chelyabinsk",
+      "code": "CL",
+      "lat": 54.452659606933594,
+      "lon": 60.33278274536133,
+      "countryId": 19
+    },
+    {
+      "name": "Kurgan",
+      "code": "KU",
+      "lat": 55.48691177368164,
+      "lon": 64.76348114013672,
+      "countryId": 19
+    },
+    {
+      "name": "Nenets",
+      "code": "NN",
+      "lat": 67.8428726196289,
+      "lon": 54.906898498535156,
+      "countryId": 19
+    },
+    {
+      "name": "Yamal-Nenets",
+      "code": "YN",
+      "lat": 67.20758056640625,
+      "lon": 74.47077178955078,
+      "countryId": 19
+    },
+    {
+      "name": "Komi",
+      "code": "KO",
+      "lat": 64.14742279052734,
+      "lon": 54.741851806640625,
+      "countryId": 19
+    },
+    {
+      "name": "Kirov",
+      "code": "KV",
+      "lat": 58.70909881591797,
+      "lon": 49.78781509399414,
+      "countryId": 19
+    },
+    {
+      "name": "Mariy-El",
+      "code": "ME",
+      "lat": 56.61445617675781,
+      "lon": 47.920352935791016,
+      "countryId": 19
+    },
+    {
+      "name": "Sverdlovsk",
+      "code": "SV",
+      "lat": 58.621986389160156,
+      "lon": 61.456607818603516,
+      "countryId": 19
+    },
+    {
+      "name": "Udmurt",
+      "code": "UD",
+      "lat": 57.17475509643555,
+      "lon": 52.74564743041992,
+      "countryId": 19
+    },
+    {
+      "name": "Astrakhan'",
+      "code": "AS",
+      "lat": 47.19813919067383,
+      "lon": 47.20481491088867,
+      "countryId": 19
+    },
+    {
+      "name": "Chuvash",
+      "code": "CV",
+      "lat": 55.52558517456055,
+      "lon": 47.07090759277344,
+      "countryId": 19
+    },
+    {
+      "name": "Kalmyk",
+      "code": "KL",
+      "lat": 46.50740432739258,
+      "lon": 45.153072357177734,
+      "countryId": 19
+    },
+    {
+      "name": "Samara",
+      "code": "SA",
+      "lat": 53.34260940551758,
+      "lon": 50.40545654296875,
+      "countryId": 19
+    },
+    {
+      "name": "Orenburg",
+      "code": "OB",
+      "lat": 52.02682876586914,
+      "lon": 55.58938980102539,
+      "countryId": 19
+    },
+    {
+      "name": "Saratov",
+      "code": "SR",
+      "lat": 51.62873077392578,
+      "lon": 46.710819244384766,
+      "countryId": 19
+    },
+    {
+      "name": "Tatarstan",
+      "code": "TT",
+      "lat": 55.40947723388672,
+      "lon": 50.90907287597656,
+      "countryId": 19
+    },
+    {
+      "name": "Ul'yanovsk",
+      "code": "UL",
+      "lat": 53.919700622558594,
+      "lon": 47.90681838989258,
+      "countryId": 19
+    },
+    {
+      "name": "Khanty-Mansiy",
+      "code": "KM",
+      "lat": 61.91387176513672,
+      "lon": 70.31582641601562,
+      "countryId": 19
+    },
+    {
+      "name": "Omsk",
+      "code": "OM",
+      "lat": 56.1262321472168,
+      "lon": 73.27955627441406,
+      "countryId": 19
+    },
+    {
+      "name": "Tyumen'",
+      "code": "TY",
+      "lat": 57.71150588989258,
+      "lon": 69.13874053955078,
+      "countryId": 19
+    },
+    {
+      "name": "Altay",
+      "code": "AL",
+      "lat": 52.636173248291016,
+      "lon": 82.57072448730469,
+      "countryId": 19
+    },
+    {
+      "name": "Gorno-Altay",
+      "code": "GA",
+      "lat": 50.75283432006836,
+      "lon": 87.01348114013672,
+      "countryId": 19
+    },
+    {
+      "name": "Kemerovo",
+      "code": "KE",
+      "lat": 54.82846450805664,
+      "lon": 87.19937133789062,
+      "countryId": 19
+    },
+    {
+      "name": "Khakass",
+      "code": "KK",
+      "lat": 53.409934997558594,
+      "lon": 89.78767395019531,
+      "countryId": 19
+    },
+    {
+      "name": "Novosibirsk",
+      "code": "NS",
+      "lat": 55.3049201965332,
+      "lon": 79.75624084472656,
+      "countryId": 19
+    },
+    {
+      "name": "Chechnya",
+      "code": "CN",
+      "lat": 43.34989547729492,
+      "lon": 45.69828796386719,
+      "countryId": 19
+    },
+    {
+      "name": "Dagestan",
+      "code": "DA",
+      "lat": 43.08213806152344,
+      "lon": 46.80221176147461,
+      "countryId": 19
+    },
+    {
+      "name": "Irkutsk",
+      "code": "IR",
+      "lat": 57.17339324951172,
+      "lon": 106.3715591430664,
+      "countryId": 19
+    },
+    {
+      "name": "Krasnoyarsk",
+      "code": "KY",
+      "lat": 67.06694030761719,
+      "lon": 95.90619659423828,
+      "countryId": 19
+    },
+    {
+      "name": "Tuva",
+      "code": "TU",
+      "lat": 51.609519958496094,
+      "lon": 94.70470428466797,
+      "countryId": 19
+    },
+    {
+      "name": "Buryat",
+      "code": "BU",
+      "lat": 53.5589599609375,
+      "lon": 109.323974609375,
+      "countryId": 19
+    },
+    {
+      "name": "Amur",
+      "code": "AM",
+      "lat": 53.464473724365234,
+      "lon": 127.66765594482422,
+      "countryId": 19
+    },
+    {
+      "name": "Chita",
+      "code": "CT",
+      "lat": 52.91929244995117,
+      "lon": 116.14264678955078,
+      "countryId": 19
+    },
+    {
+      "name": "Primor'ye",
+      "code": "PR",
+      "lat": 45.219703674316406,
+      "lon": 134.64117431640625,
+      "countryId": 19
+    },
+    {
+      "name": "Sakha (Yakutia)",
+      "code": "CK",
+      "lat": 66.05235290527344,
+      "lon": 129.865966796875,
+      "countryId": 19
+    },
+    {
+      "name": "Yevrey",
+      "code": "YV",
+      "lat": 48.564308166503906,
+      "lon": 132.2735595703125,
+      "countryId": 19
+    },
+    {
+      "name": "Khabarovsk",
+      "code": "KH",
+      "lat": 54.82075881958008,
+      "lon": 137.25184631347656,
+      "countryId": 19
+    },
+    {
+      "name": "Maga Buryatdan",
+      "code": "MG",
+      "lat": 62.736812591552734,
+      "lon": 153.93243408203125,
+      "countryId": 19
+    },
+    {
+      "name": "Sakhalin",
+      "code": "SL",
+      "lat": 50.24262619018555,
+      "lon": 142.70753479003906,
+      "countryId": 19
+    },
+    {
+      "name": "Crimea",
+      "code": "KR",
+      "lat": 45.37379455566406,
+      "lon": 34.377418518066406,
+      "countryId": 19
+    },
+    {
+      "name": "Perm'",
+      "code": "PE",
+      "lat": 59.17861557006836,
+      "lon": 56.17802810668945,
+      "countryId": 19
+    },
+    {
+      "name": "Kamchatka",
+      "code": "KA",
+      "lat": 59.017154693603516,
+      "lon": 163.00392150878906,
+      "countryId": 19
+    },
+    {
+      "name": "Sevastopol",
+      "code": "SC",
+      "lat": 44.643516540527344,
+      "lon": 33.61573791503906,
+      "countryId": 19
+    },
+    {
+      "name": "Northern Cape",
+      "code": "NC",
+      "lat": -29.35837173461914,
+      "lon": 21.349077224731445,
+      "countryId": 26
+    },
+    {
+      "name": "Western Cape",
+      "code": "WC",
+      "lat": -32.949745178222656,
+      "lon": 20.565521240234375,
+      "countryId": 26
+    },
+    {
+      "name": "North West",
+      "code": "NW",
+      "lat": -26.211650848388672,
+      "lon": 25.445066452026367,
+      "countryId": 26
+    },
+    {
+      "name": "Free State",
+      "code": "FS",
+      "lat": -28.553422927856445,
+      "lon": 26.851831436157227,
+      "countryId": 26
+    },
+    {
+      "name": "Gauteng",
+      "code": "GT",
+      "lat": -26.025976181030273,
+      "lon": 28.12009620666504,
+      "countryId": 26
+    },
+    {
+      "name": "Mpumalanga",
+      "code": "MP",
+      "lat": -25.830631256103516,
+      "lon": 30.187286376953125,
+      "countryId": 26
+    },
+    {
+      "name": "Limpopo",
+      "code": "NP",
+      "lat": -23.774112701416016,
+      "lon": 29.248613357543945,
+      "countryId": 26
+    },
+    {
+      "name": "KwaZulu-Natal",
+      "code": "NL",
+      "lat": -28.659038543701172,
+      "lon": 30.68532943725586,
+      "countryId": 26
+    },
+    {
+      "name": "Eastern Cape",
+      "code": "EC",
+      "lat": -32.090702056884766,
+      "lon": 26.396127700805664,
+      "countryId": 26
+    },
+    {
+      "name": "Maharashtra",
+      "code": "MH",
+      "lat": 19.51572608947754,
+      "lon": 76.12223815917969,
+      "countryId": 99
+    }
+  ]
+}

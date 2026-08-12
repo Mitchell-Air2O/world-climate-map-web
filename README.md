@@ -393,9 +393,9 @@ globe claims touches inside its own box only (`touch-action: none`), so the page
 scrolls normally everywhere else. A tap counts as a tap even if the finger slides a few
 pixels; a deliberate swipe rotates instead of selecting.
 
-**The marker** is a small red dot inside a white ring, sized to hold the same on-screen
-size at every zoom level. It's deliberately hollow and small so it doesn't hide the place
-you just tapped — which on a phone is usually right under your fingertip.
+**The marker** is a small red dot, sized to hold the same on-screen size at every zoom
+level and on any size of canvas — so it stays readable on a phone without swelling to
+cover half the view when someone zooms in.
 
 **Form controls** are 16px text in 44px-tall targets: 16px is the threshold below which
 iOS Safari zooms the whole page in when an input is focused, and 44px is the minimum
@@ -554,10 +554,13 @@ selectors with `.cg-widget` or `.cg-stats` so they win over the package's own ru
 
 ### The location marker
 
-The pin is drawn inside the WebGL canvas, so CSS can't reach it. It's a red dot inside a
-white ring that holds a constant on-screen size however far you zoom — deliberately small
-and hollow so that on a phone it doesn't hide the place you just tapped. To change its
-size or colors, edit the `PIN_*` constants and `_buildPin()` near the top of `globe.js`.
+The pin is drawn inside the WebGL canvas, so CSS can't reach it. It's a red dot that
+holds a constant on-screen size however far you zoom, and on whatever size of canvas it's
+rendering into.
+
+To resize it, change one number — `PIN_SCREEN_PX` near the top of `globe.js` — which is
+its diameter in CSS pixels (10 by default). Its color is the `0xff3b30` in `_buildPin()`
+just below.
 
 ---
 

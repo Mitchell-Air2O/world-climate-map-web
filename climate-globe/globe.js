@@ -43,14 +43,12 @@ const CLICK_MAX_DRAG_PX_TOUCH = 14;
 const FLY_DURATION_MIN_MS = 350;
 const FLY_DURATION_MAX_MS = 1700;
 const FLY_DURATION_MS_PER_DEGREE = 5.5;
-const PIN_RADIUS_FACTOR = 1.015;
-// Outer diameter of the marker in CSS pixels. It's resolved against the camera frustum
-// and the canvas height every frame (see _updatePin), so it holds this size however far
-// you've zoomed *and* whatever the canvas measures -- a fixed world-space marker swamps
-// the view zoomed in and vanishes zoomed out, and one sized as a fraction of the frustum
-// silently shrinks on the short canvas a phone gets. 18px is a marker you can actually
-// see without it covering the place it marks.
-const PIN_SCREEN_PX = 18;
+// Diameter of the marker in CSS pixels. It's resolved against the camera frustum and the
+// canvas height every frame (see _updatePin), so it holds this size however far you've
+// zoomed *and* whatever the canvas measures -- a fixed world-space marker swamps the view
+// zoomed in and vanishes zoomed out, and one sized as a fraction of the frustum silently
+// shrinks on the short canvas a phone gets. This is the one number to change to resize it.
+const PIN_SCREEN_PX = 10;
 
 function degToRad(d) { return (d * Math.PI) / 180; }
 function radToDeg(r) { return (r * 180) / Math.PI; }
@@ -261,6 +259,7 @@ export class ClimateGlobe extends EventTarget {
     this._dataUrl = (options.dataUrl ?? ".").replace(/\/$/, "");
     this._state = null;
     this._pinActor = null;
+    this._pinDir = null;
     this._lastSelection = null;
     this._cam = { az: 0, el: 15, dist: 3.5 };
     this._drag = { active: false, last: null, pressPos: null };
@@ -564,58 +563,48 @@ export class ClimateGlobe extends EventTarget {
     this._updateCamera();
   }
 
-  /** Ring + centre dot, built at unit size and scaled per-frame by _updatePin. A ring
-   * rather than a solid blob so a fingertip-sized marker still leaves the spot it marks
-   * visible underneath -- on a phone the marker is often under the finger that placed it.
-   * Both parts are camera-facing billboards (oriented in _updatePin), which keeps them
-   * legible at grazing angles where a surface-tangent decal would collapse to a line. */
+  /** A plain dot, built at unit radius and scaled per-frame by _updatePin. A sphere
+   * rather than a flat disc: it presents as a circle from every angle without needing to
+   * be turned to face the camera, and it can't half-sink through the surface at the
+   * globe's edge the way a camera-facing disc standing perpendicular to it would. */
   _buildPin() {
-    const group = new THREE.Group();
-
-    const ring = new THREE.Mesh(
-      new THREE.RingGeometry(0.62, 1.0, 32),
-      new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.95, depthWrite: false }),
+    const mesh = new THREE.Mesh(
+      new THREE.SphereGeometry(1, 20, 16),
+      new THREE.MeshBasicMaterial({ color: 0xff3b30 }),
     );
-    ring.renderOrder = 1;
-
-    const dot = new THREE.Mesh(
-      new THREE.CircleGeometry(0.34, 20),
-      new THREE.MeshBasicMaterial({ color: 0xff3b30, depthWrite: false }),
-    );
-    // Nudged toward the camera (local +z after the billboard rotation) so it can't
-    // z-fight the coplanar ring.
-    dot.position.z = 0.02;
-    dot.renderOrder = 2;
-
-    group.add(ring, dot);
-    group.visible = false;
-    this._scene.add(group);
-    return group;
+    mesh.visible = false;
+    this._scene.add(mesh);
+    return mesh;
   }
 
-  /** Keeps the marker at PIN_SCREEN_PX on screen and square-on to the camera. The world
-   * size that works out to depends on both the zoom and the canvas height, so it's
-   * recomputed here rather than baked into the geometry. Cheap enough to run from
-   * _updateCamera (i.e. every frame of a flight, every drag step). */
+  /** Keeps the marker at PIN_SCREEN_PX on screen. The world size that works out to
+   * depends on both the zoom and the canvas height, so it's recomputed here rather than
+   * baked into the geometry. Cheap enough to run from _updateCamera (i.e. every frame of
+   * a flight, every drag step). */
   _updatePin() {
     const pin = this._pinActor;
-    if (!pin || !pin.visible) return;
+    if (!pin || !pin.visible || !this._pinDir) return;
+
     // World units spanned by one CSS pixel at the marker's distance from the camera --
     // its true distance, not the camera's distance to the globe's centre. A pin the
     // camera is facing sits a full sphere-radius nearer than the centre does, so using
     // the orbit distance would let the marker balloon exactly when you zoom in on it.
-    const distanceToPin = this._camera.position.distanceTo(pin.position);
+    const distanceToPin = this._camera.position.distanceTo(this._pinDir);
     const viewHeight = 2 * distanceToPin * Math.tan(degToRad(this._camera.fov) / 2);
-    const worldPerPixel = viewHeight / (this._container.clientHeight || 1);
-    // Geometry is built at outer radius 1, so scale *is* the outer radius.
-    pin.scale.setScalar((PIN_SCREEN_PX / 2) * worldPerPixel);
-    pin.lookAt(this._camera.position);
+    const radius = (PIN_SCREEN_PX / 2) * (viewHeight / (this._container.clientHeight || 1));
+
+    pin.scale.setScalar(radius);
+    // Seat the dot on the surface rather than at a fixed altitude above it: zoomed out,
+    // one pixel is worth enough world units that a fixed offset would let the dot sink
+    // into the globe, and zoomed in it would leave it hovering.
+    pin.position.copy(this._pinDir).multiplyScalar(1 + radius * 0.6);
   }
 
   _dropPin(lat, lon) {
     if (!this._pinActor) this._pinActor = this._buildPin();
-    const [x, y, z] = xyzFromLatLon(lat, lon, PIN_RADIUS_FACTOR);
-    this._pinActor.position.set(x, y, z);
+    const [x, y, z] = xyzFromLatLon(lat, lon, 1.0);
+    // The point on the unit sphere; _updatePin lifts the dot off it by its own radius.
+    this._pinDir = new THREE.Vector3(x, y, z);
     this._pinActor.visible = true;
     this._updatePin();
   }
@@ -803,10 +792,8 @@ export class ClimateGlobe extends EventTarget {
     this._resizeObserver.disconnect();
     this._renderer.setAnimationLoop(null);
     if (this._pinActor) {
-      for (const part of this._pinActor.children) {
-        part.geometry.dispose();
-        part.material.dispose();
-      }
+      this._pinActor.geometry.dispose();
+      this._pinActor.material.dispose();
       this._scene.remove(this._pinActor);
       this._pinActor = null;
     }

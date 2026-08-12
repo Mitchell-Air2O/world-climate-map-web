@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Climate Globe — embed demo</title>
+
+<!-- 1: the widget stylesheet -->
+<link rel="stylesheet" href="./climate-globe/climate-globe.css" />
+
+<style>
+  /* Page chrome only — none of this is required by the widget. */
+  :root { color-scheme: dark; }
+  body {
+    margin: 0;
+    padding: 32px 24px 64px;
+    background: #101116;
+    color: #eee;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .page { max-width: 1180px; margin: 0 auto; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  h2 { font-size: 15px; margin: 0 0 14px; font-weight: 600; }
+  .sub { margin: 0 0 28px; font-size: 14px; color: #9a9caa; }
+  .card {
+    margin-top: 28px;
+    padding: 20px;
+    border: 1px solid #2a2c36;
+    border-radius: 12px;
+    background: #16171e;
+  }
+  .note { margin-top: 40px; font-size: 13px; color: #9a9caa; }
+  .note code { color: #cfd2e0; }
+  #custom-readout { font-size: 13px; color: #cfd2e0; margin: 0; }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Climate Globe</h1>
+  <p class="sub">Drag to rotate, scroll or pinch to zoom, tap anywhere to read that location.</p>
+
+  <!-- 2: the globe window — the globe and the controls that drive it -->
+  <div id="globe" data-climate-globe data-height="520px"></div>
+
+  <!-- 3: the stats window — anywhere else on the page, bound to the globe by id -->
+  <div class="card">
+    <h2>Selected location</h2>
+    <div data-climate-stats="#globe"></div>
+  </div>
+
+  <!-- Same numbers, host-page markup: proof that the raw data is yours to use. -->
+  <div class="card">
+    <h2>Your own readout, from the raw data</h2>
+    <p id="custom-readout">Nothing selected yet.</p>
+  </div>
+
+  <p class="note">
+    Integration is the <code>&lt;link&gt;</code> in <code>&lt;head&gt;</code>, the
+    <code>&lt;div data-climate-globe&gt;</code>, the
+    <code>&lt;div data-climate-stats&gt;</code> pointing at it, and the
+    <code>&lt;script type="module"&gt;</code> below. See <code>README.md</code> for options,
+    units, and theming.
+  </p>
+</div>
+
+<script type="module" src="./climate-globe/widget.js"></script>
+
+<script type="module">
+  // Everything the widget knows is on the event, in the dataset's native mL/hr;
+  // toUnits() re-expresses it in any supported unit for your own charts and copy.
+  import { toUnits, formatValue } from "./climate-globe/widget.js";
+
+  const out = document.getElementById("custom-readout");
+
+  document.addEventListener("climate-globe:select", (e) => {
+    const d = e.detail;
+    if (!d.isLand) {
+      out.textContent = "That's ocean — no production estimate there.";
+      return;
+    }
+    const week = toUnits(d, "gal/week");
+    const month = toUnits(d, "L/month");
+    const best = week.monthly.indexOf(Math.max(...week.monthly));
+    const monthNames = ["January","February","March","April","May","June",
+                        "July","August","September","October","November","December"];
+
+    out.textContent =
+      `${d.country ?? "This location"}: about ${formatValue(week.annual)} gal/week ` +
+      `(${formatValue(month.annual)} L/month), peaking in ${monthNames[best]}.`;
+  });
+</script>
+</body>
+</html>

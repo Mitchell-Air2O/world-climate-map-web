@@ -1,0 +1,9 @@
+# This branch is a distribution artifact: it gets cloned onto Windows, macOS and Linux
+# alike and served straight to browsers, so pin line endings to LF everywhere rather than
+# letting each machine's core.autocrlf decide. The data files are declared binary
+# explicitly so no autocrlf setting can ever rewrite bytes inside them.
+* text=auto eol=lf
+
+*.bin  binary
+*.webp binary
+*.png  binary

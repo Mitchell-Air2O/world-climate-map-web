@@ -1,8 +1,7 @@
 # Climate Globe — drop-in embed package
 
 An interactive 3-D climate globe you can add to an existing website by uploading one
-folder and pasting in three lines of HTML. No build step, no npm, no API keys, no
-server-side code, and no calls to any third-party service — everything it needs is in
+folder and pasting in three lines of HTML. Everything it needs is in
 this folder.
 
 Tap anywhere on the globe and it shows that location's water-production regime, the

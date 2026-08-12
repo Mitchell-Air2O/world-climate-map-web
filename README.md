@@ -1,8 +1,7 @@
 # Climate Globe — drop-in embed package
 
 An interactive 3-D climate globe you can add to an existing website by uploading one
-folder and pasting in three lines of HTML. Everything it needs is in
-this folder.
+folder and pasting in three lines of HTML. Everything it needs is in this folder.
 
 Tap anywhere on the globe and it shows that location's water-production regime, the
 annual average, and a month-by-month breakdown. Visitors can also pick a country and
@@ -51,12 +50,11 @@ for a GitHub invite, or have the zip sent to you directly.
 **Download the zip** — from the repository's Releases page, or on the command line:
 
 ```bash
-gh release download embed-v1.0.0 --repo Mitchell-Air2O/world-climate-map-web
+gh release download --repo Mitchell-Air2O/world-climate-map-web --pattern '*.zip'
 ```
 
-That repository publishes two separate release tracks — `embed-*` is this package,
-`site-*` is our own deployment — so the tag is always spelled out. Check the Releases
-page for the newest `embed-*` tag.
+That always fetches the newest release. To pin a specific version instead, name its tag —
+`gh release download embed-v1.0.0 --repo …`.
 
 **Or pull it with git.** The package lives on its own `embed` branch, which contains
 *only* these files — no Dockerfile, no nginx config, no site deployment machinery — so

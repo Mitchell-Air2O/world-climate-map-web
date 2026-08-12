@@ -33,13 +33,22 @@ import * as THREE from "./vendor/three.module.js";
 const EL_LIMIT = 85.0;
 const DIST_MIN = 1.4;
 const DIST_MAX = 10.0;
+// A finger wobbles far more than a mouse does, and on a phone a tap that moves 5px is
+// still unambiguously a tap -- holding touch to the mouse threshold made the globe feel
+// like it was ignoring taps.
 const CLICK_MAX_DRAG_PX = 4;
+const CLICK_MAX_DRAG_PX_TOUCH = 14;
 // Fly-to duration scales with angular travel so a short hop across the street
 // doesn't take as long as a flight to the antipodes.
 const FLY_DURATION_MIN_MS = 350;
 const FLY_DURATION_MAX_MS = 1700;
 const FLY_DURATION_MS_PER_DEGREE = 5.5;
-const PIN_RADIUS_FACTOR = 1.02;
+const PIN_RADIUS_FACTOR = 1.015;
+// Marker size as a fraction of camera distance, so its *on-screen* size is constant
+// however far you've zoomed (a fixed world-space marker swamps the view zoomed in and
+// vanishes zoomed out). Being proportional to the camera frustum also makes it the same
+// fraction of the canvas on a phone as on a desktop.
+const PIN_SIZE_PER_DIST = 0.003;
 
 function degToRad(d) { return (d * Math.PI) / 180; }
 function radToDeg(r) { return (r * 180) / Math.PI; }
@@ -250,6 +259,7 @@ export class ClimateGlobe extends EventTarget {
     this._dataUrl = (options.dataUrl ?? ".").replace(/\/$/, "");
     this._state = null;
     this._pinActor = null;
+    this._lastSelection = null;
     this._cam = { az: 0, el: 15, dist: 3.5 };
     this._drag = { active: false, last: null, pressPos: null };
     this._pointers = new Map();   // pointerId -> {x, y}, for pinch-to-zoom on touch
@@ -443,6 +453,7 @@ export class ClimateGlobe extends EventTarget {
     );
     this._camera.up.set(0, 0, 1);
     this._camera.lookAt(0, 0, 0);
+    this._updatePin();
   }
 
   _cancelFlight() {
@@ -511,7 +522,8 @@ export class ClimateGlobe extends EventTarget {
     this._drag.pressPos = null;
     if (!press) return;
     const dx = e.clientX - press[0], dy = e.clientY - press[1];
-    if (dx * dx + dy * dy > CLICK_MAX_DRAG_PX * CLICK_MAX_DRAG_PX) return; // was a rotate drag
+    const slop = e.pointerType === "touch" ? CLICK_MAX_DRAG_PX_TOUCH : CLICK_MAX_DRAG_PX;
+    if (dx * dx + dy * dy > slop * slop) return; // was a rotate drag
     this._handleClick(e);
   }
 
@@ -550,20 +562,50 @@ export class ClimateGlobe extends EventTarget {
     this._updateCamera();
   }
 
+  /** Ring + centre dot, built at unit size and scaled per-frame by _updatePin. A ring
+   * rather than a solid blob so a fingertip-sized marker still leaves the spot it marks
+   * visible underneath -- on a phone the marker is often under the finger that placed it.
+   * Both parts are camera-facing billboards (oriented in _updatePin), which keeps them
+   * legible at grazing angles where a surface-tangent decal would collapse to a line. */
+  _buildPin() {
+    const group = new THREE.Group();
+
+    const ring = new THREE.Mesh(
+      new THREE.RingGeometry(0.62, 1.0, 32),
+      new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.95, depthWrite: false }),
+    );
+    ring.renderOrder = 1;
+
+    const dot = new THREE.Mesh(
+      new THREE.CircleGeometry(0.34, 20),
+      new THREE.MeshBasicMaterial({ color: 0xff3b30, depthWrite: false }),
+    );
+    // Nudged toward the camera (local +z after the billboard rotation) so it can't
+    // z-fight the coplanar ring.
+    dot.position.z = 0.02;
+    dot.renderOrder = 2;
+
+    group.add(ring, dot);
+    group.visible = false;
+    this._scene.add(group);
+    return group;
+  }
+
+  /** Keeps the marker's apparent size fixed and square-on to the camera. Cheap enough to
+   * run from _updateCamera (i.e. every frame of a flight, every drag step). */
+  _updatePin() {
+    const pin = this._pinActor;
+    if (!pin || !pin.visible) return;
+    pin.scale.setScalar(this._cam.dist * PIN_SIZE_PER_DIST);
+    pin.lookAt(this._camera.position);
+  }
+
   _dropPin(lat, lon) {
-    if (this._pinActor) {
-      this._scene.remove(this._pinActor);
-      this._pinActor.geometry.dispose();
-      this._pinActor.material.dispose();
-      this._pinActor = null;
-    }
+    if (!this._pinActor) this._pinActor = this._buildPin();
     const [x, y, z] = xyzFromLatLon(lat, lon, PIN_RADIUS_FACTOR);
-    const geometry = new THREE.SphereGeometry(0.012, 16, 16);
-    const material = new THREE.MeshBasicMaterial({ color: 0xff3b30 });
-    const mesh = new THREE.Mesh(geometry, material);
-    mesh.position.set(x, y, z);
-    this._scene.add(mesh);
-    this._pinActor = mesh;
+    this._pinActor.position.set(x, y, z);
+    this._pinActor.visible = true;
+    this._updatePin();
   }
 
   _flyTo(lat, lon) {
@@ -668,9 +710,15 @@ export class ClimateGlobe extends EventTarget {
     if (animate) await this._flyTo(lat, lon);
     const cell = this._lookupCell(lat, lon);
     const detail = { lat, lon, zip, ...cell };
+    this._lastSelection = detail;
     this.dispatchEvent(new CustomEvent("locationselected", { detail }));
     return detail;
   }
+
+  /** The most recent `locationselected` detail, or null if nothing has been picked yet.
+   * Lets UI that attaches after a selection (a stats panel mounted later, a chart the host
+   * page builds on demand) catch up without waiting for the next event. */
+  getLastSelection() { return this._lastSelection ?? null; }
 
   /** Programmatically place the pin at (lat, lon), flying the camera there. */
   goToCoord(lat, lon, options = {}) {
@@ -742,6 +790,14 @@ export class ClimateGlobe extends EventTarget {
   destroy() {
     this._resizeObserver.disconnect();
     this._renderer.setAnimationLoop(null);
+    if (this._pinActor) {
+      for (const part of this._pinActor.children) {
+        part.geometry.dispose();
+        part.material.dispose();
+      }
+      this._scene.remove(this._pinActor);
+      this._pinActor = null;
+    }
     this._renderer.dispose();
     this._canvas.remove();
   }

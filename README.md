@@ -49,11 +49,15 @@ them.
 Two routes, same contents. Both need access to the repository, which is **private** — ask
 for a GitHub invite, or have the zip sent to you directly.
 
-**Download the zip** — from the repository's Releases page, or:
+**Download the zip** — from the repository's Releases page, or on the command line:
 
 ```bash
-gh release download embed-latest --repo Mitchell-Air2O/world-climate-map-web
+gh release download embed-v1.0.0 --repo Mitchell-Air2O/world-climate-map-web
 ```
+
+That repository publishes two separate release tracks — `embed-*` is this package,
+`site-*` is our own deployment — so the tag is always spelled out. Check the Releases
+page for the newest `embed-*` tag.
 
 **Or pull it with git.** The package lives on its own `embed` branch, which contains
 *only* these files — no Dockerfile, no nginx config, no site deployment machinery — so

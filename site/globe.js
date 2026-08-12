@@ -44,11 +44,13 @@ const FLY_DURATION_MIN_MS = 350;
 const FLY_DURATION_MAX_MS = 1700;
 const FLY_DURATION_MS_PER_DEGREE = 5.5;
 const PIN_RADIUS_FACTOR = 1.015;
-// Marker size as a fraction of camera distance, so its *on-screen* size is constant
-// however far you've zoomed (a fixed world-space marker swamps the view zoomed in and
-// vanishes zoomed out). Being proportional to the camera frustum also makes it the same
-// fraction of the canvas on a phone as on a desktop.
-const PIN_SIZE_PER_DIST = 0.003;
+// Outer diameter of the marker in CSS pixels. It's resolved against the camera frustum
+// and the canvas height every frame (see _updatePin), so it holds this size however far
+// you've zoomed *and* whatever the canvas measures -- a fixed world-space marker swamps
+// the view zoomed in and vanishes zoomed out, and one sized as a fraction of the frustum
+// silently shrinks on the short canvas a phone gets. 18px is a marker you can actually
+// see without it covering the place it marks.
+const PIN_SCREEN_PX = 18;
 
 function degToRad(d) { return (d * Math.PI) / 180; }
 function radToDeg(r) { return (r * 180) / Math.PI; }
@@ -591,12 +593,22 @@ export class ClimateGlobe extends EventTarget {
     return group;
   }
 
-  /** Keeps the marker's apparent size fixed and square-on to the camera. Cheap enough to
-   * run from _updateCamera (i.e. every frame of a flight, every drag step). */
+  /** Keeps the marker at PIN_SCREEN_PX on screen and square-on to the camera. The world
+   * size that works out to depends on both the zoom and the canvas height, so it's
+   * recomputed here rather than baked into the geometry. Cheap enough to run from
+   * _updateCamera (i.e. every frame of a flight, every drag step). */
   _updatePin() {
     const pin = this._pinActor;
     if (!pin || !pin.visible) return;
-    pin.scale.setScalar(this._cam.dist * PIN_SIZE_PER_DIST);
+    // World units spanned by one CSS pixel at the marker's distance from the camera --
+    // its true distance, not the camera's distance to the globe's centre. A pin the
+    // camera is facing sits a full sphere-radius nearer than the centre does, so using
+    // the orbit distance would let the marker balloon exactly when you zoom in on it.
+    const distanceToPin = this._camera.position.distanceTo(pin.position);
+    const viewHeight = 2 * distanceToPin * Math.tan(degToRad(this._camera.fov) / 2);
+    const worldPerPixel = viewHeight / (this._container.clientHeight || 1);
+    // Geometry is built at outer radius 1, so scale *is* the outer radius.
+    pin.scale.setScalar((PIN_SCREEN_PX / 2) * worldPerPixel);
     pin.lookAt(this._camera.position);
   }
 
